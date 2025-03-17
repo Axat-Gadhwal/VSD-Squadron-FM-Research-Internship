@@ -1,10 +1,10 @@
-<Body BG Color="Red">
+
 
  Tasks for VSD Squadron FM</FONT COLOR>
 This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
-<details><summary><H1><Font Color ="#000000">Task 1 - </H1></summary></Font>
+<details><summary><H1>Task 1 - </H1></summary></Font>
 
-<details><summary><H2>Understanding the Verilog code</H2></summary>
+<details><summary><H2> Part 1 - Understanding the Verilog code</H2></summary>
   
   ### Access the verilog code :- https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v
 
@@ -253,18 +253,6 @@ Divides the output frequency by 2.
 
 </details>
 
-
-
-
-
-
-
-
-
-
-
-</details>
-
 <details><summary><H4>Summary</H4></summary>
 
 <p>This oscillator provides the clock signal used by the frequency counter and other components in the design.</p>
@@ -276,10 +264,22 @@ Divides the output frequency by 2.
 
 
 
-<details><summary style="font-size: 34em;"><H4>Frequency Counter Logic</H4></summary>
 
-<p style="font-size: 9em;">A 28-bit register (frequency_counter_i) counts clock cycles from the internal oscillator.</p>
-  It increments on each rising edge of int_osc.
+
+
+
+
+</details>
+
+
+
+
+
+
+<details><summary style="font-size: 34em;"><H4>Frequency Counter Logic</H4></summary>
+ 
+- A 28-bit register (frequency_counter_i) counts clock cycles from the internal oscillator.
+* It increments on each rising edge of int_osc.
 
   <br>The 5th bit of the counter is assigned to testwire, which can be used for testing.
 
@@ -288,7 +288,7 @@ Divides the output frequency by 2.
 </details>
 
 
-<details><summary><H4>RGB Led Driver Overview</H4></summary>
+<details><summary><H4>RGB Led Driver (SB_RGBA_DRV) Overview</H4></summary>
 
 <p>In the provided Verilog code, the RGB LED driver is instantiated using the SB_RGBA_DRV module. This module is specifically designed to control RGB LEDs, allowing for the adjustment of color and brightness through PWM (Pulse Width Modulation) signals.</p>
 
@@ -296,7 +296,7 @@ Divides the output frequency by 2.
 
     
     
-<details><summary><H6>Instantiation</H6></summary>
+<details><summary><H6>**Instantiation**</H6></summary>
 
     SB_RGBA_DRV RGB_DRIVER (
             .RGBLEDEN(1'b1), // Enable the RGB LED driver
@@ -314,12 +314,91 @@ Divides the output frequency by 2.
 
 </details>
 
-<details><summary></summary></details>
+<details><summary><H6> **Parameters** </H6></summary>
+
+<details><summary><H6>RGBLEDEN</summary>
+
+<p>This signal enables the RGB LED driver. It must be set to 1 for the driver to function.</p>
+
+
+
+</details>
+
+<details><summary><H6>RGB0PWM, RGB1PWM, RGB2PWM</H6></summary>
+
+These signals control the ` PWM ` for the **red**, **green**, and **blue** channels, respectively. A value of 1 means the LED is on, while 0 means it is ` off `.
+
+
+
+</details>
+
+<details><summary><H6> Curren </H6> </summary>
+
+ This signal enables the current for the ` RGB LED `. It must be set to 1 for the LED to receive power.
+
+
+
+</details>
+
+<details><summary><H6>RGB0, RGB1, RGB2</H6></summary>
+
+These are the actual output connections to the ` RGB LED ` for the **red, green, and blue** channels.
+
+
+
+</details>
 
 
 
 
 
+
+
+
+
+
+</details>
+
+<details><summary><H6>**Functionality**</H6></summary>
+
+- The ` RGB LED ` driver takes the **PWM** signals and controls the brightness of each color channel of the RGB LED.
++ By adjusting the **PWM** signals, you can create different colors by mixing the intensities of red, green, and blue light.
+* In the provided code, the driver is configured to turn on the blue LED (**RGB2PWM** is set to 1) while keeping the red and green LEDs off (RGB0PWM and RGB1PWM are set to 0).
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary><H6>** Current Settings ** </H6></summary>
+
+    defparam RGB_DRIVER.RGB0_CURRENT = "0b000001"; // Red current
+    defparam RGB_DRIVER.RGB1_CURRENT = "0b000001"; // Green current
+    defparam RGB_DRIVER.RGB2_CURRENT = "0b000001"; // Blue current
+
+  <p>These parameters set the current levels for each color channel. The values can be adjusted to change the brightness of each LED color.</p>
+
+> Current settings: All LEDs set to "0b000001" (minimum current)
+
+
+</details>
+
+<details><summary><H6>** Output connections ** </H6></summary>
+
+
+    RGB0 → led_red
+    RGB1 → led_green
+    RGB2 → led_blue
+
+
+
+
+
+</details>
 
 
 
@@ -350,7 +429,50 @@ Divides the output frequency by 2.
 </details>
 
 
+<details><summary><H3>Summary of Part 1 </H3></summary>
 
+<details><summary><H4>Purpose</H4></summary>
+
+This Verilog module serves as an RGB LED controller, integrating an internal oscillator and a frequency counter to facilitate precise management of RGB LED outputs. By providing a stable internal clock source, the module ensures reliable timing for LED operations while incorporating a dedicated test signal for external monitoring. This design is particularly well-suited for embedded systems that require consistent LED performance with minimal reliance on external components.
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary><H4>Internal Logic and Oscillator</summary>
+
+At the heart of the module is a high-frequency oscillator (SB_HFOSC), which acts as the internal timing source. The output from this oscillator drives a 28-bit frequency counter that increments with each clock cycle. This counter not only tracks timing information but also outputs its 5th bit to the ` testwire ` , enabling external observation of the counter's state. This setup allows for effective monitoring and debugging of the module's timing behavior.
+
+
+
+
+</details>
+
+<details><summary><H4>RGB Led Driver Functionality</summary>
+
+
+The RGB LED driver (SB_RGBA_DRV) is responsible for controlling the LED outputs with the following key features:
+
+<details><summary><H5>Current-Controlled Outputs</H5></summary>
+
+
+
+
+</details>
+
+
+
+
+
+</details>
+
+
+</details>
 
 </details>
 
