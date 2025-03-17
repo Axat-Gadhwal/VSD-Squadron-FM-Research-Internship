@@ -286,6 +286,47 @@ Divides the output frequency by 2.
 </details>
 
 
+<details><summary>RGB Led Driver Overview</summary>
+
+<p>In the provided Verilog code, the RGB LED driver is instantiated using the SB_RGBA_DRV module. This module is specifically designed to control RGB LEDs, allowing for the adjustment of color and brightness through PWM (Pulse Width Modulation) signals.</p>
+
+<details><summary>Key components of the RGB Led Driver</summary>
+
+    SB_RGBA_DRV RGB_DRIVER (
+        .RGBLEDEN(1'b1), // Enable the RGB LED driver
+        .RGB0PWM (1'b0), // Red PWM signal
+        .RGB1PWM (1'b0), // Green PWM signal
+        .RGB2PWM (1'b1), // Blue PWM signal
+        .CURREN  (1'b1), // Enable current for the RGB LED
+        .RGB0    (led_red),   // Connect to the red LED output
+        .RGB1    (led_green), // Connect to the green LED output
+        .RGB2    (led_blue)   // Connect to the blue LED output
+    );
+    
+
+
+
+
+
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
+
+
 
 
 
