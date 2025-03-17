@@ -168,12 +168,113 @@ This declares another output port named testwire. The purpose of this port is ty
 
 <details><summary>Internal Oscillator (SB_HFOSC) instantiation</summary>
 
+#### The internal oscillator in the Verilog code is instantiated using the SB_HFOSC module, which generates a high-frequency clock signal for the design. Here’s a brief overview of its instantiation:
+
        SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC (
           .CLKHFPU(1'b1), // Power-up the oscillator
           .CLKHFEN(1'b1), // Enable the oscillator
           .CLKHF(int_osc) // Output clock signal
       );
 
+<details><summary>Purpose</summary>
+
+<p>Generates a high-frequency clock signal (int_osc).</p>
+
+
+
+
+
+
+
+</details>
+
+<details><summary>Parameters</summary>
+
+#### CLKHF_DIV ("0b10"): 
+Divides the output frequency by 2.
+
+
+
+
+
+
+
+</details>
+
+<details><summary>Connections{Control Signals}</summary>
+
+<details><summary>CLKHFPU</summary>
+
+<p>This connection basically powers up the oscillator</p>
+
+
+
+
+
+
+
+</details>
+
+<details><summary>CLKHFEN</summary>
+
+<P>This connection basically enables the Oscillator</P>
+
+
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary>CLKHF</summary>
+
+
+<p>Output connected to internal int_osc signal</p>
+
+
+
+
+
+
+
+
+</details>
+
+
+
+
+
+
+</details>
+
+<details><summary>Summary</summary>
+
+<p>This oscillator provides the clock signal used by the frequency counter and other components in the design.</p>
+
+
+
+</details>
+
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary style="font-size: 34em;">Frequency Counter Logic</summary>
+
+<p style="font-size: 9em;">A 28-bit register (frequency_counter_i) counts clock cycles from the internal oscillator.</p>
+  It increments on each rising edge of int_osc.
+
+  <br>
 
 
 </details>
