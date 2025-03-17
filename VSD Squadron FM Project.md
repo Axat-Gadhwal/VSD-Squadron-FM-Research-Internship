@@ -1,8 +1,10 @@
-# Tasks for VSD Squadron FM
-This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
-<details><summary>Task 1 - </summary>
+<Body BG Color="Red">
 
-<details><summary>Understanding the Verilog code</summary>
+ Tasks for VSD Squadron FM</FONT COLOR>
+This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
+<details><summary><H1><Font Color ="#000000">Task 1 - </H1></summary></Font>
+
+<details><summary><H2>Understanding the Verilog code</H2></summary>
   
   ### Access the verilog code :- https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v
 
@@ -65,13 +67,13 @@ This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
       defparam RGB_DRIVER.RGB2_CURRENT = "0b000001";
     
     endmodule
-<details><summary>Purpose</summary>
+<details><summary><H3>Purpose</H3></summary>
 
   ### The purpose of this Verilog code is that it controls the RGB Led based on the Clock Inputs
 
   </details>
 
-   <details><summary> Explanation of Verilog code </summary>
+   <details><summary><H3> Explanation of Verilog code </H3></summary>
      
 <p>We need to understand this verilog code :-</p>
 
@@ -91,7 +93,7 @@ This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
 
 
 
-<details><summary> Module Declaration </summary>
+<details><summary><H4> Module Declaration </H4></summary>
 
 <p>The line module top ( begins the definition of a module named top. In Verilog, a module is a fundamental building block that encapsulates a design or a part of a design</p>
 
@@ -101,11 +103,11 @@ This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
 
 </details>
 
-<details><summary>Ports</summary>
+<details><summary><H4>Ports</H4></summary>
 
 <p>The ports are defined within the parentheses. Ports are the inputs and outputs of the module that allow it to interact with other modules or external signals.</p>
 
-<details><summary>Output Ports</summary>
+<details><summary><H5>Output Ports</H5></summary>
  
   ### output wire led_red:
   This declares an output port named led_red, which is a wire type. It is intended to control the red component of an RGB LED.
@@ -118,7 +120,7 @@ This declares an output port named led_green, which controls the green component
 
 </details>
 
-<details><summary>Input Port</summary>
+<details><summary><H5>Input Port</H5></summary>
 
 ### input wire hw_clk:
 This declares an input port named hw_clk, which is a wire type. It represents the hardware oscillator clock input. This clock signal is used to synchronize operations within the module.
@@ -131,7 +133,7 @@ This declares an input port named hw_clk, which is a wire type. It represents th
 
 </details>
 
-<details><summary>Additional Output Port</summary>
+<details><summary><H5>Additional Output Port</H5></summary>
 
 ### output wire testwire:
 This declares another output port named testwire. The purpose of this port is typically for testing or debugging purposes, allowing you to output a signal that can be monitored externally.
@@ -145,7 +147,7 @@ This declares another output port named testwire. The purpose of this port is ty
 
 </details>
 
-<details><summary> Summary</summary>
+<details><summary><H5>Summary</H5></summary>
 
 <p>The top module is designed to control an RGB LED with three output ports (for red, blue, and green) and takes a hardware clock input. It also includes an additional output for testing purposes. The actual functionality of how these outputs are driven would be defined in the rest of the module's code, which is not included in this snippet.</p>
 
@@ -163,10 +165,10 @@ This declares another output port named testwire. The purpose of this port is ty
 </details>
 
 
-<details><summary>Internal Logic Components Analysis</summary>
+<details><summary><H3>Internal Logic Components Analysis</H3></summary>
 
 
-<details><summary>Internal Oscillator (SB_HFOSC) instantiation</summary>
+<details><summary><H4>Internal Oscillator (SB_HFOSC) instantiation</H4></summary>
 
 #### The internal oscillator in the Verilog code is instantiated using the SB_HFOSC module, which generates a high-frequency clock signal for the design. Here’s a brief overview of its instantiation:
 
@@ -176,7 +178,7 @@ This declares another output port named testwire. The purpose of this port is ty
           .CLKHF(int_osc) // Output clock signal
       );
 
-<details><summary>Purpose</summary>
+<details><summary><H5>Purpose</H5></summary>
 
 <p>Generates a high-frequency clock signal (int_osc).</p>
 
@@ -188,7 +190,7 @@ This declares another output port named testwire. The purpose of this port is ty
 
 </details>
 
-<details><summary>Parameters</summary>
+<details><summary><H5>Parameters</H5></summary>
 
 #### CLKHF_DIV ("0b10"): 
 Divides the output frequency by 2.
@@ -201,9 +203,9 @@ Divides the output frequency by 2.
 
 </details>
 
-<details><summary>Connections{Control Signals}</summary>
+<details><summary><H5>Connections{Control Signals}</H5></summary>
 
-<details><summary>CLKHFPU</summary>
+<details><summary><H6>CLKHFPU</H6></summary>
 
 <p>This connection basically powers up the oscillator</p>
 
@@ -215,7 +217,7 @@ Divides the output frequency by 2.
 
 </details>
 
-<details><summary>CLKHFEN</summary>
+<details><summary><H6>CLKHFEN</H6></summary>
 
 <P>This connection basically enables the Oscillator</P>
 
@@ -230,7 +232,7 @@ Divides the output frequency by 2.
 
 </details>
 
-<details><summary>CLKHF</summary>
+<details><summary><H6>CLKHF</H6></summary>
 
 
 <p>Output connected to internal int_osc signal</p>
@@ -263,7 +265,7 @@ Divides the output frequency by 2.
 
 </details>
 
-<details><summary> Summary</summary>
+<details><summary><H4>Summary</H4></summary>
 
 <p>This oscillator provides the clock signal used by the frequency counter and other components in the design.</p>
 
@@ -274,7 +276,7 @@ Divides the output frequency by 2.
 
 
 
-<details><summary style="font-size: 34em;">Frequency Counter Logic</summary>
+<details><summary style="font-size: 34em;"><H4>Frequency Counter Logic</H4></summary>
 
 <p style="font-size: 9em;">A 28-bit register (frequency_counter_i) counts clock cycles from the internal oscillator.</p>
   It increments on each rising edge of int_osc.
@@ -286,23 +288,35 @@ Divides the output frequency by 2.
 </details>
 
 
-<details><summary>RGB Led Driver Overview</summary>
+<details><summary><H4>RGB Led Driver Overview</H4></summary>
 
 <p>In the provided Verilog code, the RGB LED driver is instantiated using the SB_RGBA_DRV module. This module is specifically designed to control RGB LEDs, allowing for the adjustment of color and brightness through PWM (Pulse Width Modulation) signals.</p>
 
-<details><summary>Key components of the RGB Led Driver</summary>
+<details><summary><H5>Key components of the RGB Led Driver</H5></summary>
+
+    
+    
+<details><summary><H6>Instantiation</H6></summary>
 
     SB_RGBA_DRV RGB_DRIVER (
-        .RGBLEDEN(1'b1), // Enable the RGB LED driver
-        .RGB0PWM (1'b0), // Red PWM signal
-        .RGB1PWM (1'b0), // Green PWM signal
-        .RGB2PWM (1'b1), // Blue PWM signal
-        .CURREN  (1'b1), // Enable current for the RGB LED
-        .RGB0    (led_red),   // Connect to the red LED output
-        .RGB1    (led_green), // Connect to the green LED output
-        .RGB2    (led_blue)   // Connect to the blue LED output
-    );
-    
+            .RGBLEDEN(1'b1), // Enable the RGB LED driver
+            .RGB0PWM (1'b0), // Red PWM signal
+            .RGB1PWM (1'b0), // Green PWM signal
+            .RGB2PWM (1'b1), // Blue PWM signal
+            .CURREN  (1'b1), // Enable current for the RGB LED
+            .RGB0    (led_red),   // Connect to the red LED output
+            .RGB1    (led_green), // Connect to the green LED output
+            .RGB2    (led_blue)   // Connect to the blue LED output
+        );
+
+
+
+
+</details>
+
+<details><summary></summary></details>
+
+
 
 
 
