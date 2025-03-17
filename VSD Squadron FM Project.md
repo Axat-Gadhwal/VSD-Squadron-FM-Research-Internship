@@ -251,7 +251,19 @@ Divides the output frequency by 2.
 
 </details>
 
-<details><summary>Summary</summary>
+
+
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary> Summary</summary>
 
 <p>This oscillator provides the clock signal used by the frequency counter and other components in the design.</p>
 
@@ -262,20 +274,14 @@ Divides the output frequency by 2.
 
 
 
-
-
-
-
-
-</details>
-
 <details><summary style="font-size: 34em;">Frequency Counter Logic</summary>
 
 <p style="font-size: 9em;">A 28-bit register (frequency_counter_i) counts clock cycles from the internal oscillator.</p>
   It increments on each rising edge of int_osc.
 
-  <br>
+  <br>The 5th bit of the counter is assigned to testwire, which can be used for testing.
 
+<p><A href="https://en.wikipedia.org/wiki/Frequency_counter#:~:text=Most%20frequency%20counters%20work%20by%20using%20a%20counter%2C,display%2C%20and%20the%20counter%20is%20reset%20to%20zero.">Explained briefly</A></p>
 
 </details>
 
