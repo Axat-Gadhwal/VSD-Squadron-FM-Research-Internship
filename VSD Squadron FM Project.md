@@ -2,7 +2,7 @@
 
  Tasks for VSD Squadron FM</FONT COLOR>
 This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
-<details><summary><H1>Task 1 - </H1></summary></Font>
+<details><summary><H1>Task 1 - </H1></summary>
 
 <details><summary><H2> Part 1 - Understanding the Verilog code</H2></summary>
   
