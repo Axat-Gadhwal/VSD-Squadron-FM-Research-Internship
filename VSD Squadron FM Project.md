@@ -1,12 +1,11 @@
 
 
- Tasks for VSD Squadron FM</FONT COLOR>
+ # Tasks for VSD Squadron FM
 This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
-<details><summary><H1>Task 1 - </H1></summary>
+<details><summary><H1>Task 1 - Verilog Code and PCF File Analysis</H1></summary>
 
-<details><summary><H2> Part 1 - Understanding the Verilog code</H2></summary>
+<details><summary><H2> Step 1 - Understanding the Verilog code</H2></summary>
   
-  ### Access the verilog code :- https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v
 
 ##  We need to understand this verilog code:-
      //----------------------------------------------------------------------------
@@ -460,6 +459,92 @@ The RGB LED driver (SB_RGBA_DRV) is responsible for controlling the LED outputs 
 
 <details><summary><H5>Current-Controlled Outputs</H5></summary>
 
+<p>Each color channel is configured with a minimum current setting of "0b000001," ensuring proper brightness levels.</p>
+
+
+</details>
+
+<details><summary><H5>PulseWidth Modulation(PWM)</H5></summary>
+
+The driver utilizes PWM control for each color channel, allowing for dynamic adjustments in brightness and color mixing.
+
+
+</details>
+
+<details><summary><H5>Fixed Configuration</H5></summary>
+
+- The blue LED is configured to operate at maximum brightness (RGB2PWM = 1'b1), providing a vibrant blue output.
++ The red and green LEDs are set to minimum brightness (RGB0PWM = RGB1PWM = 1'b0), effectively turning them off.
+
+#### This configuration enables the module to deliver precise control over the RGB LED's color output, ensuring stable operation while facilitating easy testing and monitoring capabilities.
+
+
+
+
+
+
+
+</details>
+
+
+
+
+
+
+
+</details>
+
+
+
+
+</details>
+
+
+
+
+
+
+</details>
+
+<details><summary><H2>Step 2 - Creating the PCF File</H2></summary>
+
+### That's the PCF File
+
+    set_io  led_red	39
+    set_io  led_blue 40
+    set_io  led_green 41
+    set_io  hw_clk 20
+    set_io  testwire 17
+
+<details><summary><H3>Overview of the PCF File</H3></summary>
+
+ #### The PCF (Physical Constraints File) is used to define the physical pin assignments for the FPGA design. It specifies which physical pins on the FPGA correspond to the input and output ports defined in the Verilog code.
+
+<details><summary><H4>Purpose</H4></summary>
+
+#### The purpose of the PCF file is to map the logical signals defined in the Verilog module to the physical pins of the FPGA. This mapping is crucial for ensuring that the hardware behaves as intended when the design is implemented on the FPGA.
+
+
+</details>
+
+<details><summary><H4>Structure of the PCF File</H4></summary>
+
+### The PCF file consists of pin assignments that specify the following:
+
+
+
+<details><summary>Pin Name</summary>
+
+<p>The name of the physical pin on the FPGA</p>
+
+
+</details>
+
+<details><summary>Signal Name</summary>
+
+
+
+
 
 
 
@@ -472,9 +557,26 @@ The RGB LED driver (SB_RGBA_DRV) is responsible for controlling the LED outputs 
 </details>
 
 
-</details>
+
+
+
+
+
 
 </details>
 
 
+
+
+
 </details>
+
+
+
+
+
+
+
+
+</details>
+
