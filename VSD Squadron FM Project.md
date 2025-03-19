@@ -533,17 +533,134 @@ The driver utilizes PWM control for each color channel, allowing for dynamic adj
 
 
 
-<details><summary>Pin Name</summary>
+<details><summary><H5>Pin Name</H5></summary>
 
 <p>The name of the physical pin on the FPGA</p>
 
 
 </details>
 
-<details><summary>Signal Name</summary>
+<details><summary><H5>Signal Name</H5></summary>
+
+**The corresponding signal from the Verilog code.**
 
 
 
+
+
+</details>
+
+<details><summary><H5>Direction</H5></summary>
+
+Indicates whether the pin is an input or output.
+
+
+
+
+
+
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary><H4>Pin Assignments explained</summary>
+
+**Each line in the PCF file corresponds to a specific pin assignment:** 
+
+
+<details><summary><H5>set_io led_red 39</H5></summary>
+
+
+This line assigns the `led_red` output from the Verilog module to physical pin 39 on the FPGA. The ability to control the red LED is essential for color mixing in the RGB LED. By adjusting the PWM signal for this pin, the brightness of the red light can be varied, allowing for a wide range of colors when combined with green and blue.
+
+
+
+
+
+</details>
+
+<details><summary><H5>set_io led_blue 40</summary>
+
+This line assigns the `led_blue` output to pin 40. Similar to the red LED, the blue LED's brightness is controlled via PWM. This pin is crucial for producing colors that require blue light, such as purple when mixed with red or cyan when mixed with green.
+
+
+
+</details>
+
+<details><summary><H5>set_io led_green 41</H5></summary>
+
+This line assigns the `led_green` output to pin 41. The green LED is vital for creating a full spectrum of colors. By varying the PWM signal on this pin, the intensity of the green light can be adjusted, enabling the creation of colors like yellow (when mixed with red) and white (when all colors are combined).
+
+
+</details>
+
+<details><summary><H5>set_io hw_clk 20</H5></summary>
+
+This line assigns the `hw_clk input` to pin 20. Provides the clock signal for synchronization. The clock signal is fundamental for the operation of digital circuits. It ensures that all components of the Verilog module operate in sync, particularly the frequency counter that drives the timing for the RGB LED driver.
+
+
+</details>
+
+<details><summary><H5>set_io testwire 17</H5></summary>
+
+
+This line assigns the `testwire output` to pin 17. This pin is important for debugging and verifying the functionality of the design. By monitoring the state of the testwire, developers can ensure that the internal oscillator and frequency counter are working correctly, which is critical for the overall performance of the RGB LED controller.
+
+
+
+</details>
+
+
+
+
+
+
+</details>
+
+<details><summary><H4>Conclusion</H4></summary>
+
+**These assignments ensure that the signals from the Verilog code are correctly routed to the appropriate pins on the FPGA for proper operation.**
+
+
+
+
+</details>
+
+
+
+
+
+
+
+
+
+</details>
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary><H3>Step 3 - Integrating with the VSDSquadron FPGA Mini Board</H3></summary>
+
+### Useful Links
+
+- <a href="https://github.com/thesourcerer8/VSDSquadron_FM/commit/14f0ec0ad3a2475920f0248964a18bfb14a14046">Access Makefile Here</a>
 
 
 
@@ -559,24 +676,4 @@ The driver utilizes PWM control for each color channel, allowing for dynamic adj
 
 
 
-
-
-
-
-</details>
-
-
-
-
-
-</details>
-
-
-
-
-
-
-
-
-</details>
 
