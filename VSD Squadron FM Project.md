@@ -656,11 +656,11 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 
 </details>
 
-<details><summary><H3>Step 3 - Integrating with the VSDSquadron FPGA Mini Board</H3></summary>
+<details><summary><H2>Step 3 - Integrating with the VSDSquadron FPGA Mini Board</H3></summary>
 
 ### Useful Links
 
-- <a href="https://github.com/thesourcerer8/VSDSquadron_FM/commit/14f0ec0ad3a2475920f0248964a18bfb14a14046">Access Makefile Here</a>
+- <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Project/commit/f53f6b8b4bd87fa402332f3ed64dfd91651656b4">Access Makefile Here</a>
 
 
 
