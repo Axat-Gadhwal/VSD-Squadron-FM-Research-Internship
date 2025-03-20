@@ -664,12 +664,111 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 + <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Project/commit/364cd6ba9da9dd026fda9a84b65e62c78609b679">Access Datasheet Here</a>
 * <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Project/commit/792f5778e1981b87492effb4b0aae3a3918a5ac0">Access ASC Code Here</a>
 - <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/commit/bb7a01bee5500480dc854de141f0d5839464a4b8">Access JSON Code Here</a>
-+ <a href="
++ <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/commit/495075504bde68ada55d45d37d0aa6c4b6cdedbb">Access Module Timings Here</a>
+
+
+<details><summary><H3>Steps to follow</H3></summary>
+
+## We need to follow the following steps for flashing the RGB Led:-
+
+<details><summary><H3>1. Review the FPGA Squadron FM Datasheet</H3></summary>
+
+#### To Understand its Features and Pinout
+
+
+</details>
+
+<details><summary><H3>2. Correlate Connections</H3></summary>
+
+#### Use the datasheet to correlate the physical board connections with the PCF file and Verilog code
+
+
+
+
+</details>
+
+<details><summary><H3>3. Connect the Board to the Computer</H3></summary>
+
+ #### Follow the instructions in the datasheet (e.g., using USB-C and ensuring FTDI connection).
+
+
+
+</details>
+
+<details><summary><H3>4. Follow the Makefile for Building and Flashing the Verilog Code:</H3></summary>
+
+1. Run `make clean` to clear any previous builds.
+2. Run `make build` to compile the Design.
+3. Run `sudo make flash` to program the **FPGA** Board.
+
+
+</details>
+
+<details><summary>5. Observe the Behaviour of RGB Led</summary>
+
+<p>Confirm successful programming by checking that the RGB LED blinks on the board.</p>
+
+<br> After Running `make clean`, the board should appear as follows...
+
+
 
 
 </details>
 
 
+
+
+</details>
+
+
+
+
+</details>
+
+<details><summary><H2>Step 4 - Final Documentation</H2></summary>
+
+### This is a comprehensive report of all the 3 steps 
+
+
+<details><summary><H3>Summary of Verilog Code Functionality</summary>
+
+The Verilog code implements an RGB LED controller that utilizes an internal oscillator and a frequency counter to manage the RGB LED outputs. It allows for dynamic control of the LED colors based on clock inputs, enabling various color combinations through PWM (Pulse Width Modulation).
+
+
+
+
+
+
+</details>
+
+<details><summary><H3>Pin Mapping Details</H3></summary>
+
+ #### The following pin assignments are defined in the PCF file:
+
+`led_red`--> Pin 39: Controls the red LED component.
+`led_blue`--> Pin 40: Controls the blue LED component.
+`led_green`--> Pin 41: Controls the green LED component.
+`hw_clk`--> Pin 20: Provides the clock signal for synchronization.
+`testwire`--> Pin 17: Outputs a test signal for monitoring.
+
+
+</details>
+
+<details><summary><H3>Integration Steps:</H3></summary>
+
+- Reviewed the FPGA Mini board datasheet for features and pinout.
++ Mapped physical connections to the PCF file and Verilog code.
+* Connected the board to the computer via USB-C.
+- Followed the Makefile to build and flash the design:
+      + Executed `make clean`, `make build`, and `sudo make flash`.
+* Observed the RGB LED behavior to confirm successful programming.
+
+
+
+</details>
+
+
+</details>
 
 
 
