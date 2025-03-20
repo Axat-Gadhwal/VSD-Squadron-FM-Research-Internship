@@ -759,13 +759,28 @@ The Verilog code implements an RGB LED controller that utilizes an internal osci
 - Reviewed the FPGA Mini board datasheet for features and pinout.
 + Mapped physical connections to the PCF file and Verilog code.
 * Connected the board to the computer via USB-C.
-- Followed the Makefile to build and flash the design:
-      + Executed `make clean`, `make build`, and `sudo make flash`.
+- Followed the Makefile to build and flash the design.
+<br>       |_ Executed `make clean`, `make build`, and `sudo make flash`.
 * Observed the RGB LED behavior to confirm successful programming.
 
 
 
 </details>
+
+<details><summary><H3>Challenges faced and Solutions Implemented</H3></summary>
+
+### Faced challenges. But there were not many challenges. Main challenges were :
+
+- The Oracle Virtual Box, sometimes frustrated me... I downloaded the `Extension File{ext.}` and when I tried to open Virtual Box. It showed problems, So I just opened the Extension File and luckily, then it worked, Like A **Hack** !!
++ Was very hard to understand things - just googled it and got hints....
+
+**This is neither a Problem nor Solution, I just wanted that please add some projects similar to that of the VSD Squadron MINI like Smart Door, etc using Servo Motor.... Please**
+
+
+
+
+</details>
+
 
 
 </details>
