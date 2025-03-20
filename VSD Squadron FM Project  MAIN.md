@@ -745,11 +745,11 @@ The Verilog code implements an RGB LED controller that utilizes an internal osci
 
  #### The following pin assignments are defined in the PCF file:
 
-`led_red`--> Pin 39: Controls the red LED component.
-`led_blue`--> Pin 40: Controls the blue LED component.
-`led_green`--> Pin 41: Controls the green LED component.
-`hw_clk`--> Pin 20: Provides the clock signal for synchronization.
-`testwire`--> Pin 17: Outputs a test signal for monitoring.
+<br>`led_red`--> Pin 39: Controls the red LED component.
+<br>`led_blue`--> Pin 40: Controls the blue LED component.
+<br>`led_green`--> Pin 41: Controls the green LED component.
+<br>`hw_clk`--> Pin 20: Provides the clock signal for synchronization.
+<br>`testwire`--> Pin 17: Outputs a test signal for monitoring.
 
 
 </details>
