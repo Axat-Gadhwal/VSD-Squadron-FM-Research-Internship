@@ -1,10 +1,10 @@
-
+![image](https://github.com/user-attachments/assets/42711d32-867a-412f-acef-35e300ba808a)
 
  # Tasks for VSD Squadron FM
 This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
 <details><summary><H1>Task 1 - Verilog Code and PCF File Analysis</H1></summary>
 
-<details><summary>⚠Precautions and Steps before starting</summary>
+<details><summary><H2>⚠Precautions and Steps before starting</H2></summary>
 
 We need to make sure several things...
 
@@ -16,15 +16,48 @@ We need to make sure several things...
 ## Let's begin...😲😲
 
 After starting The Virtual Machine, it should look as follows :-
-[Alt text=Starting Vm Image][Img Src="
+<br><Img Src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(257).png?raw=true">
 
+### Open the terminal
+<Img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(264).png?raw=true">
 
+### Navigate to `VSDSquadron_FM` directory because all projects are located there.
+> Later navigating to the `blink_led` directory because all the things required to flash led like Makefile, ASC Code
+<Img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(266).png?raw=true">
 
+### Seeing the contents of the blink_led....
+<Img Src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(267).png?raw=true">
+
+## Now we have made the base... Learning about these in later documents...
 
 </details>
 
 <details><summary><H2> Step 1 - Understanding the Verilog code</H2></summary>
   
+## Till now we had seen the contents of the "blink_led" directory. Studing in deeper about them now....
+
+> Use `nano` to see the files in a text editor called **nano**. Such as `nano Makefile` to see the Makefile, etc....
+
+## Contents of Makefile:-
+
+### 1. Makefile
+<br>`nano Makefile` to see the Makefile
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(268).png?raw=true">
+<br>Makefile Content
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(269).png?raw=true">
+
+### 2. Verilog Code{rgb_blink.v}
+> `.v` stands for verilog
+<br>`nano rgb_blink.v` to see the  Verilog file
+<img src="![image](https://github.com/user-attachments/assets/5bd39a72-a6c6-4a13-aef2-31487a2f1aa3)
+<br>Verilog file content
+![image](https://github.com/user-attachments/assets/a61c2c91-6ff7-4e99-aae7-20cf7c0cca86)
+
+### 3. PCF File{VSDSquadronFM.pcf}
+> `.pcf` stands for PCF file format such as `.txt`.
+<br>`nano VSDSquadronFM.pcf` to see the PCF File
+![image](https://github.com/user-attachments/assets/2f2ba902-dba7-4380-85be-e0bc7d465c21)
+
 
 ##  We need to understand this verilog code:-
      //----------------------------------------------------------------------------
