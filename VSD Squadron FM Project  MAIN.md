@@ -4,6 +4,25 @@
 This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
 <details><summary><H1>Task 1 - Verilog Code and PCF File Analysis</H1></summary>
 
+<details><summary>⚠Precautions and Steps before starting</summary>
+
+We need to make sure several things...
+
+ <H3> - @ First refer to Datasheet and make sure that all steps are performed correctly.</H3>
+           + Refer to <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Project/commit/364cd6ba9da9dd026fda9a84b65e62c78609b679"> Datasheet</a>
+
+> Make sure that all steps in the datasheet are performed correctly{installation, setup, etc.....}
+
+## Let's begin...😲😲
+
+After starting The Virtual Machine, it should look as follows :-
+[Alt text=Starting Vm Image][Img Src="
+
+
+
+
+</details>
+
 <details><summary><H2> Step 1 - Understanding the Verilog code</H2></summary>
   
 
@@ -760,7 +779,7 @@ The Verilog code implements an RGB LED controller that utilizes an internal osci
 + Mapped physical connections to the PCF file and Verilog code.
 * Connected the board to the computer via USB-C.
 - Followed the Makefile to build and flash the design.
-<br>       |_ Executed `make clean`, `make build`, and `sudo make flash`.
+     - Executed `make clean`, `make build`, and `sudo make flash`.
 * Observed the RGB LED behavior to confirm successful programming.
 
 
