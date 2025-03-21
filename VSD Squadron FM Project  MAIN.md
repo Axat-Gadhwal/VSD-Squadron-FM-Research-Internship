@@ -1,5 +1,3 @@
-![image](https://github.com/user-attachments/assets/42711d32-867a-412f-acef-35e300ba808a)
-
  # Tasks for VSD Squadron FM
 This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
 <details><summary><H1>Task 1 - Verilog Code and PCF File Analysis</H1></summary>
@@ -38,7 +36,7 @@ After starting The Virtual Machine, it should look as follows :-
 
 > Use `nano` to see the files in a text editor called **nano**. Such as `nano Makefile` to see the Makefile, etc....
 
-## Contents of Makefile:-
+## Contents of "blink_led":-
 
 ### 1. Makefile
 <br>`nano Makefile` to see the Makefile
