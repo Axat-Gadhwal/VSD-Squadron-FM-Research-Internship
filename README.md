@@ -746,7 +746,7 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 
 ## We need to follow the following steps for flashing the RGB Led:-
 
-<details><summary><H3>1. Review the FPGA Squadron FM Datasheet</H3></summary>
+<details><summary><H3>1. Review the FPGA Squadron FM <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/VSDSquadronFMDatasheet.pdf"> Datasheet</H3></summary>
 
 #### To Understand its Features and Pinout
 
@@ -766,6 +766,16 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 
  #### Follow the instructions in the datasheet (e.g., using USB-C and ensuring FTDI connection).
 
+> After connecting the board, Type `lsusb` to see if the board is connected or not...
+> <img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(278).png?raw=true">
+> If you see something like `Future Technology Devices International...` something. You can conclude that the FPGA Board is connected.
+
+### After connecting the board using USB-C, the board should look as follows:-
+
+> Red light make us conclude that the board is connected.
+
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/IMG-20250321-WA0018.jpg?raw=true">
+
 
 
 </details>
@@ -773,26 +783,33 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 <details><summary><H3>4. Follow the Makefile for Building and Flashing the Verilog Code:</H3></summary>
 
 1. Run `make clean` to clear any previous builds.
+   
 2. Run `make build` to compile the Design.
+  <img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(279).png?raw=true">
 3. Run `sudo make flash` to program the **FPGA** Board.
-
+   <img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(280).png?raw=true">
 
 </details>
 
-<details><summary>5. Observe the Behaviour of RGB Led</summary>
+<details><summary><H3>5. Observe the Behaviour of RGB Led</H3></summary>
 
 <p>Confirm successful programming by checking that the RGB LED blinks on the board.</p>
 
-<br> After Running `make clean`, the board should appear as follows...
+> After Running `make clean`, the board should appear as follows...
+> <img src ="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/IMG-20250321-WA0020.jpg?raw=true">
+
 
 
 
 
 </details>
 
+<details><summary><H3>Final Expected Behaviour</H3></summary>
 
+ ### After "sudo make flash" the board should look as follows
 
-
+ https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/Axat-Gadhwal-patch-1/VID-20250321-WA0003.mp4
+ 
 </details>
 
 
