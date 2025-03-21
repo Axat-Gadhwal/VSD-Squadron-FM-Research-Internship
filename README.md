@@ -30,8 +30,8 @@ After starting The Virtual Machine, it should look as follows :-
 
 </details>
 
-<details><summary><H2> Step 1 - Understanding the Verilog code</H2></summary>
-  
+<details><summary><H2>Navigating files needed to execute the RGB Led Blinking Program</H2></summary>
+
 ## Till now we had seen the contents of the "blink_led" directory. Studing in deeper about them now....
 
 > Use `nano` to see the files in a text editor called **nano**. Such as `nano Makefile` to see the Makefile, etc....
@@ -49,12 +49,37 @@ After starting The Virtual Machine, it should look as follows :-
 <br>`nano rgb_blink.v` to see the  Verilog file
 <img src="![image](https://github.com/user-attachments/assets/5bd39a72-a6c6-4a13-aef2-31487a2f1aa3)
 <br>Verilog file content
-![image](https://github.com/user-attachments/assets/a61c2c91-6ff7-4e99-aae7-20cf7c0cca86)
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(271).png?raw=true">
 
 ### 3. PCF File{VSDSquadronFM.pcf}
 > `.pcf` stands for PCF file format such as `.txt`.
 <br>`nano VSDSquadronFM.pcf` to see the PCF File
-![image](https://github.com/user-attachments/assets/2f2ba902-dba7-4380-85be-e0bc7d465c21)
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(272).png?raw=true">
+<br>PCF File Content
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(273).png?raw=true">
+
+### 4. JSON Code{rgb_blink.json}
+> `.json` stands for **json** file format.
+<br>JSON File Content
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(274).png?raw=true">
+
+### 5. ASC Code{rgb_blink.asc}
+> `.asc` for **asc** file format.
+<br> `nano rgb_blink.asc` to see the ASC File
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(275).png?raw=true">
+> Unable to show the `asc` file's content. See later topics to see that...
+
+### 6. Module Timings{rgb_blink.timings}
+> `.timings` for **Module Timings**.
+<br> `nano rgb_blink.timings` to see the Module Timings' file.
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(276).png?raw=true">
+<br> Module Timings File Content
+<img src="https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/main/Screenshot%20(277).png?raw=true">
+
+</details>
+
+<details><summary><H2> Step 1 - Understanding the Verilog code</H2></summary>
+  
 
 
 ##  We need to understand this verilog code:-
