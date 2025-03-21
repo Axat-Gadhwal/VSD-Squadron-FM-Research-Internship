@@ -710,7 +710,7 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 
 ### Useful Links
 
-- <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Project/commit/f53f6b8b4bd87fa402332f3ed64dfd91651656b4">Access Makefile Here</a>
+- <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/Makefile">Access Makefile Here</a>
 + <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Project/commit/364cd6ba9da9dd026fda9a84b65e62c78609b679">Access Datasheet Here</a>
 * <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/ASC%20Code">Access ASC Code Here</a>
 - <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/JSON%20Code">Access JSON Code Here</a>
