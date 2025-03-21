@@ -806,11 +806,22 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 
 <details><summary><H3>Final Expected Behaviour</H3></summary>
 
- ### After "sudo make flash" the board should look as follows
+ 
 
- https://github.com/Axat-Gadhwal/Images-VSD-Internship/blob/Axat-Gadhwal-patch-1/VID-20250321-WA0003.mp4
+
+
+### After "sudo make flash" the board should look as follows
+
+https://github.com/user-attachments/assets/c7c5b021-d3b8-4a99-b1d9-c037566a84ae
+ 
  
 </details>
+
+
+
+
+</details>
+
 
 
 
@@ -872,12 +883,6 @@ The Verilog code implements an RGB LED controller that utilizes an internal osci
 
 
 </details>
-
-
-
-</details>
-
-
 
 </details>
 
