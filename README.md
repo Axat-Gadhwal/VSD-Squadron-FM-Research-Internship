@@ -141,12 +141,11 @@ After starting The Virtual Machine, it should look as follows :-
       defparam RGB_DRIVER.RGB2_CURRENT = "0b000001";
     
     endmodule
-<details><summary><H3>Purpose</H3></summary>
+## Purpose
 
   ### The purpose of this Verilog code is that it controls the RGB Led based on the Clock Inputs
 
-  </details>
-
+  
    <details><summary><H3> Explanation of Verilog code </H3></summary>
      
 <p>We need to understand this verilog code :-</p>
@@ -167,7 +166,7 @@ After starting The Virtual Machine, it should look as follows :-
 
 
 
-<details><summary><H4> Module Declaration </H4></summary>
+## Module Declaration
 
 <p>The line module top ( begins the definition of a module named top. In Verilog, a module is a fundamental building block that encapsulates a design or a part of a design</p>
 
@@ -175,28 +174,28 @@ After starting The Virtual Machine, it should look as follows :-
 
 
 
-</details>
 
-<details><summary><H4>Ports</H4></summary>
+
+## Ports
 
 <p>The ports are defined within the parentheses. Ports are the inputs and outputs of the module that allow it to interact with other modules or external signals.</p>
 
-<details><summary><H5>Output Ports</H5></summary>
+### Output Ports
  
-  ### output wire led_red:
+   **output wire led_red:**
   This declares an output port named led_red, which is a wire type. It is intended to control the red component of an RGB LED.
 
-  ### output wire led_blue:
+  **output wire led_blue:**
   This declares an output port named led_blue, which controls the blue component of the RGB LED.
 
-### output wire led_green:
+ **output wire led_green:**
 This declares an output port named led_green, which controls the green component of the RGB LED.
 
-</details>
 
-<details><summary><H5>Input Port</H5></summary>
 
-### input wire hw_clk:
+### Input Ports
+
+**input wire hw_clk:**
 This declares an input port named hw_clk, which is a wire type. It represents the hardware oscillator clock input. This clock signal is used to synchronize operations within the module.
 
 
@@ -205,11 +204,11 @@ This declares an input port named hw_clk, which is a wire type. It represents th
 
 
 
-</details>
 
-<details><summary><H5>Additional Output Port</H5></summary>
 
-### output wire testwire:
+### Additional Output Port
+
+**output wire testwire**
 This declares another output port named testwire. The purpose of this port is typically for testing or debugging purposes, allowing you to output a signal that can be monitored externally.
 
 
@@ -218,10 +217,7 @@ This declares another output port named testwire. The purpose of this port is ty
 
 
 
-
-</details>
-
-<details><summary><H5>Summary</H5></summary>
+### Summary
 
 <p>The top module is designed to control an RGB LED with three output ports (for red, blue, and green) and takes a hardware clock input. It also includes an additional output for testing purposes. The actual functionality of how these outputs are driven would be defined in the rest of the module's code, which is not included in this snippet.</p>
 
@@ -229,10 +225,8 @@ This declares another output port named testwire. The purpose of this port is ty
 
 
 
-</details>
 
 
-</details>
 
 
 
@@ -252,7 +246,7 @@ This declares another output port named testwire. The purpose of this port is ty
           .CLKHF(int_osc) // Output clock signal
       );
 
-<details><summary><H5>Purpose</H5></summary>
+## Purpose
 
 <p>Generates a high-frequency clock signal (int_osc).</p>
 
@@ -260,11 +254,7 @@ This declares another output port named testwire. The purpose of this port is ty
 
 
 
-
-
-</details>
-
-<details><summary><H5>Parameters</H5></summary>
+## Parameters
 
 #### CLKHF_DIV ("0b10"): 
 Divides the output frequency by 2.
