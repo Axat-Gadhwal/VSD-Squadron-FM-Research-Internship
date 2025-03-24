@@ -533,9 +533,9 @@ The driver utilizes PWM control for each color channel, allowing for dynamic adj
 </details>
 
 
-
-
 </details>
+
+
 
 
 
@@ -646,8 +646,8 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 
 
 
-
 </details>
+
 
 <details><summary><H4>Conclusion</H4></summary>
 
@@ -666,9 +666,8 @@ This line assigns the `testwire output` to pin 17. This pin is important for deb
 
 
 
+
 </details>
-
-
 
 
 
@@ -811,6 +810,8 @@ The Verilog code implements an RGB LED controller that utilizes an internal osci
 - Followed the Makefile to build and flash the design.
      - Executed `make clean`, `make build`, and `sudo make flash`.
 * Observed the RGB LED behavior to confirm successful programming.
+- Observed the Final behaviour as :-
+https://github.com/user-attachments/assets/c7c5b021-d3b8-4a99-b1d9-c037566a84ae  
 
 
 
@@ -828,11 +829,13 @@ The Verilog code implements an RGB LED controller that utilizes an internal osci
 
 
 
+
+
 </details>
 
 </details>
 
-
+</details>
 
 
 
