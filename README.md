@@ -932,12 +932,56 @@ This module handles the transmission of data over UART using the 8N1 format.
           tx          // tx wire
       );
 
-</details>
++ State Machine:
+
+The module uses a state machine to manage the transmission process:
+
+     parameter STATE_IDLE=8'd0;
+     parameter STATE_STARTTX=8'd1;
+     parameter STATE_TXING=8'd2;
+     parameter STATE_TXDONE=8'd3;
+
+
+* Transmission Logic:
+
+The logic for sending data is implemented in an always block that triggers on the clock's rising edge:
+
+     always @ (posedge clk) begin
+         // Start sending?
+         if (senddata == 1 && state == STATE_IDLE) begin
+             state <= STATE_STARTTX;
+             buf_tx <= txbyte;
+             txdone <= 1'b0;
+         end
+         // Additional logic for sending bits...
+     end
+
+
+
 
 </details>
 
 
 
+
+</details>
+
+
+<details><summary><H2>Step 2 : Design Documentation</H2></summary>
+
+<details><summary><H3>Block Diagram Illustrating the UART Loopback Architecture.</H3></summary>
+
+
+
+
+
+
+
+</details>
+
+
+
+</details>
 
 
 
