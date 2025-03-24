@@ -1,5 +1,5 @@
 <img src="https://fonts.freepik.com/api/render?variantId=11811&fontSize=72&text=Tasks+for+VSD+Squadron+FM">
-This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
+<p><img src="https://fonts.freepik.com/api/render?variantId=11255&fontSize=24&text=This%20repo%20is%20created%20by%20Axat%20Gadhwal%20oF%20Gra"><img src="https://fonts.freepik.com/api/render?variantId=11255&fontSize=24&text=de%207th%20of%20APS%20Varanasi"></p>
 <details><summary><img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=Task+1+-+Verilog+Code+and+PCF+File+Analysis"></summary>
 
 <details><summary><H2>⚠Precautions and Steps before starting</H2></summary>
@@ -840,7 +840,13 @@ https://github.com/user-attachments/assets/c7c5b021-d3b8-4a99-b1d9-c037566a84ae
 <details><summary><Img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=Task%202%20%3A%20Implementing%20a%20UART%20Loopback%20Mecha"><img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=nism"></summary>
 
 
+<details><summary><H2>Objective</H2></summary>
 
+### The objective of this task is to implement a UART (Universal Asynchronous Receiver-Transmitter) loopback mechanism. This mechanism allows transmitted data to be immediately received back, facilitating the testing of UART functionality. By routing the transmitted data from the TX (Transmit) pin directly to the RX (Receive) pin, we can verify that the UART communication is functioning correctly without the need for external devices.
+
+
+
+</details>
 
 
 
