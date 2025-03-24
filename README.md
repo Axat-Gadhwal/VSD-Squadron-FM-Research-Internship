@@ -1,6 +1,6 @@
- # Tasks for VSD Squadron FM
+<img src="https://fonts.freepik.com/api/render?variantId=11811&fontSize=72&text=Tasks+for+VSD+Squadron+FM">
 This repo is created by Axat Gadhwal oF Grade 7th of APS Varanasi
-<details><summary><H1>Task 1 - Verilog Code and PCF File Analysis</H1></summary>
+<details><summary><img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=Task+1+-+Verilog+Code+and+PCF+File+Analysis"></summary>
 
 <details><summary><H2>⚠Precautions and Steps before starting</H2></summary>
 
@@ -837,5 +837,41 @@ https://github.com/user-attachments/assets/c7c5b021-d3b8-4a99-b1d9-c037566a84ae
 
 </details>
 
+<details><summary><Img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=Task%202%20%3A%20Implementing%20a%20UART%20Loopback%20Mecha"><img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=nism"></summary>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
 
