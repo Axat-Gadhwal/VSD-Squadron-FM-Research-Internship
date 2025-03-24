@@ -1,6 +1,6 @@
 <img src="https://fonts.freepik.com/api/render?variantId=11811&fontSize=72&text=Tasks+for+VSD+Squadron+FM">
 <p><img src="https://fonts.freepik.com/api/render?variantId=11255&fontSize=24&text=This%20repo%20is%20created%20by%20Axat%20Gadhwal%20oF%20Gra"><img src="https://fonts.freepik.com/api/render?variantId=11255&fontSize=24&text=de%207th%20of%20APS%20Varanasi"></p>
-<details><summary><img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=Task+1+-+Verilog+Code+and+PCF+File+Analysis"></summary>
+<details><summary><img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=48&text=Task%201%20%3A%20Verilog%20code%20and%20PCF%20File%20Analysis"></summary>
 
 <details><summary><H2>⚠Precautions and Steps before starting</H2></summary>
 
@@ -837,18 +837,59 @@ https://github.com/user-attachments/assets/c7c5b021-d3b8-4a99-b1d9-c037566a84ae
 
 </details>
 
-<details><summary><Img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=Task%202%20%3A%20Implementing%20a%20UART%20Loopback%20Mecha"><img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=36&text=nism"></summary>
+<details><summary><p><Img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=48&text=Task%202%20%3A%20Implementing%20a%20Uart%20Loopback%20Mecha"><img src="https://fonts.freepik.com/api/render?variantId=12086&fontSize=48&text=nism"></p></summary>
 
 
 <details><summary><H2>Objective</H2></summary>
 
-### The objective of this task is to implement a UART (Universal Asynchronous Receiver-Transmitter) loopback mechanism. This mechanism allows transmitted data to be immediately received back, facilitating the testing of UART functionality. By routing the transmitted data from the TX (Transmit) pin directly to the RX (Receive) pin, we can verify that the UART communication is functioning correctly without the need for external devices.
+The objective of this task is to implement a UART (Universal Asynchronous Receiver-Transmitter) loopback mechanism. This mechanism allows transmitted data to be immediately received back, facilitating the testing of UART functionality. By routing the transmitted data from the TX (Transmit) pin directly to the RX (Receive) pin, we can verify that the UART communication is functioning correctly without the need for external devices.
 
 
 
 </details>
 
+<details><summary><H2>Step 1 : Study the Existing Code</summary>
 
+### UART is a widely used hardware communication protocol that enables serial communication between devices. It operates using two primary data lines:
+
+- **TX(Transmit)** - The line used to send data from the device.
++ **RX(Recieve)**  - The line used to receive data into the device.
+
+## Understanding the UART Loopback Mechanism
+
+<p> A UART loopback mechanism is a diagnostic feature that allows the system to test its own communication capabilities. In this mode, any data sent to the TX pin is routed back to the RX pin of the same module. This setup is particularly useful for verifying that both the TX and RX lines are functioning correctly.</p>
+
+
+## Existing Code:  
+<p>The code for the UART loopback mechanism can be found in the repository here. This code includes the necessary Verilog modules to implement the UART protocol and the loopback functionality.</p>
+
+
+<details><summary><H3>Analysis of the Existing code</H3></summary>
+
+
+ The existing code for the UART loopback mechanism is designed to facilitate serial communication between the FPGA and external devices. It consists of two main components: the top module and the UART transmission module. Below is a detailed analysis of each component.
+
+
+## 1. Top Module (top.v)
+
+### The top module integrates the UART functionality and controls the RGB LEDs. Key features include:
+
+- Module Declaration:
+
+       module top (
+        output wire led_red,   // Red LED output
+        output wire led_blue,  // Blue LED output
+        output wire led_green, // Green LED output
+        output wire uarttx,    // UART Transmission pin
+        input wire uartrx,     // UART Reception pin
+        input wire hw_clk      // Hardware clock input
+       );
+
++ hsgfh
+
+</details>
+
+</details>
 
 
 
