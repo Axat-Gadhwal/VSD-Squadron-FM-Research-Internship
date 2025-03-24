@@ -885,7 +885,13 @@ The objective of this task is to implement a UART (Universal Asynchronous Receiv
         input wire hw_clk      // Hardware clock input
        );
 
-+ hsgfh
+     - This section declares the inputs and outputs of the top module. The `uart tx` pin is used for transmitting data, while the uartrx pin is used for receiving data. The RGB LEDs provide visual feedback based on the UART activity.
+
++ Internal Oscillator
+
+The internal oscillator generates the clock signal for UART operation:
+
+    SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC ( .CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
 </details>
 
