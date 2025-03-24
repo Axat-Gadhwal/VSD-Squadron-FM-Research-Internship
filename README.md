@@ -891,7 +891,46 @@ The objective of this task is to implement a UART (Universal Asynchronous Receiv
 
 The internal oscillator generates the clock signal for UART operation:
 
-    SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC ( .CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
+    SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC ( .CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc
+
+**This oscillator is configured to run at a specific frequency, which is essential for timing the UART communication.**..
+
+* Loopback Logic:
+
+The TX output is connected to the RX input, enabling loopback:
+
+    assign uarttx = uartrx;
+
+
+- RGB LED Control:
+
+The RGB LED driver provides visual feedback based on the RX data:
+
+     SB_RGBA_DRV RGB_DRIVER (
+       .RGBLEDEN(1'b1),
+       .RGB0PWM(uartrx),
+       .RGB1PWM(uartrx),
+       .RGB2PWM(uartrx),
+       .CURREN(1'b1),
+       .RGB0(led_green),
+       .RGB1(led_blue),
+       .RGB2(led_red)
+     );
+
+
+2. . UART Transmission Module (`uart_tx_8n1.v`)
+
+This module handles the transmission of data over UART using the 8N1 format.
+
+- Module Declaration:
+
+      module uart_tx_8n1 (
+          clk,        // input clock
+          txbyte,     // outgoing byte
+          senddata,   // trigger tx
+          txdone,     // outgoing byte sent
+          tx          // tx wire
+      );
 
 </details>
 
