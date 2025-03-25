@@ -1069,6 +1069,10 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 * LED Driver ensures proper current flow and brightness control.
 
+## Circuit Diagram will look as follows:-
+> © Drawn in draw.io
+
+![Screenshot (310)](https://github.com/user-attachments/assets/d1efe0fd-bb97-47ab-8e7b-9046ed294381)
 
 
 
@@ -1076,7 +1080,30 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 </details>
 
+<details><summary><H2>Step 3 : Implementation</H2></summary>
 
+<details><summary><H3>Steps to Transmit Code to the FPGA Board</H3></summary>
+
+1. First run the Virtual Machine with the help of <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/VSDSquadronFMDatasheet.pdf">Datasheet</a>.
+2. Now create a folder and name it `uart_loopback_project` in desktop as follows:
+
+![Screenshot (311)](https://github.com/user-attachments/assets/856d53f3-b5af-4feb-8a39-41f93450c98e)
+
+3. Now open the terminal and we need to create the following files
+
+
+
+
+
+</details>
+
+
+
+
+
+
+
+</details>
 
 
 
