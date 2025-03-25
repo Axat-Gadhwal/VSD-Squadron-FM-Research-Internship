@@ -971,17 +971,113 @@ The logic for sending data is implemented in an always block that triggers on th
 
 <details><summary><H3>Block Diagram Illustrating the UART Loopback Architecture.</H3></summary>
 
+## How to create Block Diagram ?🤔🤔
+
+Block Diagrams are specific diagrams used to represent a flow or structure in an easy way..
+
+Hints for creating the block diagram!!😣
+
+- The internal oscillator (SB_HFOSC) implements a high - frequency oscillator.
+     - Also generates internal clock signal(int_osc)
+     - **Basically this means that the internal clock signal(int_osc) will be a high frequency oscillator.**
++ Also there is a 28 bit frequency counter(frequency_counter_i) which implements on every positive edge of internal oscillator(int_osc)
+* The TX and RX {Transmit and Recieve} pins are connected directly with loopback.
+* The RGB LED Driver {SB_RGBA_DRV} controls the three ports or channels :- led_red, led_blue, and led_green.
+* Control Signals include RGB_LEDEN and Curren.
+
+### With the help of the following hints, our Block Diagram will look as :-
 
 
+![Screenshot (308)](https://github.com/user-attachments/assets/2af6f60c-cc63-4521-bb95-829e131f537a)
+ 
+
+ 
+
+
+
+</details>
+
+<details><summary><H3>Detailed circuit diagram showing connections between the FPGA and any Peripheral Devices used</H3></summary>
+
+In the UART loopback mechanism, peripheral devices play a crucial role in enhancing the functionality of the FPGA. They allow for data input, output, and communication, making the system more versatile. The loopback feature itself is a testing mechanism that can be used to verify the functionality of these peripheral devices by ensuring that data sent from the TX pin is correctly received on the RX pin, allowing for immediate feedback and validation of the communication path.
+
+## Types of Peripheral Devices
+
+1️. Input Devices – Send data to the system
+<br>🔹 Examples: Keyboard, Mouse, Microphone, Joystick, Scanner, Camera
+
+2️.  Output Devices – Display or transmit information from the system
+<br>🔹 Examples: Monitor, Speaker, Printer, LED Display, Buzzer
+
+3️.  Storage Devices – Store data permanently or temporarily
+<br>🔹 Examples: Hard Drive (HDD), Solid State Drive (SSD), USB Flash Drive, SD Card
+
+4️.  Communication Devices – Enable data transfer between systems
+<br>🔹 Examples: Wi-Fi Adapter, Ethernet Card, Bluetooth Module, UART Module
+
+## 📌 Key Components & Their Functions
+
+1️. Power Supply (VCC & GND)
++ Provides 3.3V power to the FPGA and peripherals.
+
+- VCC (3.3V) → Supplies power to FPGA and USB-UART Bridge.
+
+* GND (Ground) → Common ground connection for all components.
+
+2️. FPGA Core (ICE40UP5K)
++ The main processing unit.
+
+- Handles UART communication, LED control, and timing generation.
+
+3️. USB-UART Bridge (FTDI FT232H)
+
++ Connects the FPGA to the PC for serial communication.
+
+- TX (FPGA Pin 14) → RX (USB-UART Bridge)
+
+* RX (FPGA Pin 15) → TX (USB-UART Bridge)
+
++ Powered by 3.3V & GND.
+
+4️. UART Interface & UART Loopback
+
++ TX (Transmitter) and RX (Receiver) are connected internally to form a loopback.
+
+- This means any data sent from the PC to the FPGA is immediately echoed back.
+
+* Used for testing UART functionality.
+
+5️. Internal Oscillator (int_osc)
+
++ Provides a clock signal for the FPGA.
+
+- Connected to FPGA Pin 20.
+
+* Used for timing UART operations.
+
+6️. Frequency Counter (frequency_counter_i)
+
+ + Generates a 9600Hz clock needed for UART baud rate.
+
+- Takes input from int_osc and divides the frequency.
+
+7️. RGB LEDs & RGB LED Driver
+
++ LEDs provide visual feedback on UART activity.
+
+- Connected to FPGA Pins 39 (Red), 40 (Green), and 41 (Blue).
+
+* LED Driver ensures proper current flow and brightness control.
 
 
 
 
 </details>
 
-
-
 </details>
+
+
+
 
 
 
