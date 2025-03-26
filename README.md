@@ -1097,9 +1097,9 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 ## Steps needed to follow for creating the above files:-
 
-1. Open Firefox in your Virtual Machine
-2. Sign in into the web browser and access the Gmail link of the <a href="https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback">uart_loopback</a>project.
-3. Now follow the following steps:-
+**1**. Open Firefox in your Virtual Machine
+**2**. Sign in into the web browser and access the Gmail link of the <a href="https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback">uart_loopback</a>project.
+**3**. Now follow the following steps:-
 <br>(a). Open the terminal and navigate into the `uart_loopback_project` directory created earlier.
 
 ![Screenshot (312)](https://github.com/user-attachments/assets/7006ba8d-47ed-478c-851c-dd0e9f53bfb5)
@@ -1124,16 +1124,30 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 ![Screenshot (316)](https://github.com/user-attachments/assets/76ca75e4-4fbb-4f0e-b5ce-ca90d35f11b4)
 
+<br>    ii. Now enter the Verilog File Content and Save it.
 
+![Screenshot (317)](https://github.com/user-attachments/assets/3c1e4f56-f869-4248-9382-968d4d6f063a)
 
+<br>(e) i. Now type `VSDSquadronFM.pcf` to create the PCF File.
 
-</details>
+![Screenshot (318)](https://github.com/user-attachments/assets/2fa3b2e1-e955-49a0-bf6a-6171707d0d36)
 
+<br>    ii. Now enter the PCF Fiel content and save it.
 
+![Screenshot (326)](https://github.com/user-attachments/assets/19a1b520-d79f-4c1b-a1e1-25343a7371e0)
 
+## Steps to transmit the code
 
+1. Now type `ls -ltr` to see the File Contents.
 
+![Screenshot (319)](https://github.com/user-attachments/assets/ae1ee586-8f9a-40d7-91bf-ede7d2c8333f)
 
+> As we can see that all the files we need are created.
+
+2. Now connect the FPGA Board with the help of <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/VSDSquadronFMDatasheet.pdf">Datasheet</a>.
+3. Type `lsusb` to ensure that the board is connected.
+     - If you see something as " FUture Technologies...." ; This means that the FPGA Board is connected successfully and the computer system is recognising it.
+         ~~
 
 </details>
 
