@@ -1095,8 +1095,34 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 <br>iii.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/loopback-top.v"> top module{verilog} file</a>
 <br>iv.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/uart_trx.v"> uart verilog file</a>
 
+## Steps needed to follow for creating the above files:-
 
+1. Open Firefox in your Virtual Machine
+2. Sign in into the web browser and access the Gmail link of the <a href="https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback">uart_loopback</a>project.
+3. Now follow the following steps:-
+<br>(a). Open the terminal and navigate into the `uart_loopback_project` directory created earlier.
 
+![Screenshot (312)](https://github.com/user-attachments/assets/7006ba8d-47ed-478c-851c-dd0e9f53bfb5)
+
+<br>(b) i. Now type `nano Makefile` so that a new file named **Makefile** gets created in the **Nano** editor.
+
+![Screenshot (313)](https://github.com/user-attachments/assets/f695928a-50e8-4115-8ced-0b6f274cf238)
+
+<br>    ii. Now enter the Makefile content and then press Ctrl+`x` and then Ctrl+`y` and then `Enter` to save and exit.
+
+![Screenshot (325)](https://github.com/user-attachments/assets/0df24cf1-f8a3-4a5c-9609-6b6bf42a387a)
+
+<br>(c) i. Now type `nano top.v` to create the Verilog file.
+
+![Screenshot (314)](https://github.com/user-attachments/assets/a6fc1760-1530-428f-b99f-700b8bc90e12)
+
+<br>    ii. Now enter the Verilog File Content and then save it.
+
+![Screenshot (315)](https://github.com/user-attachments/assets/f7a3189e-6ae3-460f-a975-c5bf29aadc98)
+
+<br>(d) i. Now type `nano uart_trx.v` to create the uart_trx verilog file.
+
+![Screenshot (316)](https://github.com/user-attachments/assets/76ca75e4-4fbb-4f0e-b5ce-ca90d35f11b4)
 
 
 
