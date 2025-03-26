@@ -1090,10 +1090,10 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 ![Screenshot (311)](https://github.com/user-attachments/assets/856d53f3-b5af-4feb-8a39-41f93450c98e)
 
 3. Now open the terminal create the following files:-
-i.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/MakeFile">Makefile</a>
-ii.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/VSDSquadronFM-uart.pcf">PCF File</a>
-iii.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/loopback-top.v"> top module{verilog} file</a>
-iv.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/uart_trx.v"> uart verilog file</a>
+<br>i.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/MakeFile">Makefile</a>
+<br>ii.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/VSDSquadronFM-uart.pcf">PCF File</a>
+<br>iii.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/loopback-top.v"> top module{verilog} file</a>
+<br>iv.<a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/uart_trx.v"> uart verilog file</a>
 
 
 
