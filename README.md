@@ -1084,7 +1084,7 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 <details><summary><H3>Steps to Transmit Code to the FPGA Board</H3></summary>
 
-1. First run the Virtual Machine with the help of <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/VSDSquadronFMDatasheet.pdf">Datasheet</a>.
+1. First run the Virtual Machine with the help of <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/VSDSquadronFMDatasheet.pdf"> Datasheet</a>.
 2. Now create a folder and name it `uart_loopback_project` in desktop as follows:
 
 ![Screenshot (311)](https://github.com/user-attachments/assets/856d53f3-b5af-4feb-8a39-41f93450c98e)
@@ -1097,9 +1097,9 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 ## Steps needed to follow for creating the above files:-
 
-**1**. Open Firefox in your Virtual Machine
-**2**. Sign in into the web browser and access the Gmail link of the <a href="https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback">uart_loopback</a>project.
-**3**. Now follow the following steps:-
+<br>**1**. Open Firefox in your Virtual Machine
+<br>**2**. Sign in into the web browser and access the Gmail link of the <a href="https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback">uart_loopback</a>project.
+<br>**3**. Now follow the following steps:-
 <br>(a). Open the terminal and navigate into the `uart_loopback_project` directory created earlier.
 
 ![Screenshot (312)](https://github.com/user-attachments/assets/7006ba8d-47ed-478c-851c-dd0e9f53bfb5)
@@ -1146,37 +1146,56 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 2. Now connect the FPGA Board with the help of <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/blob/main/VSDSquadronFMDatasheet.pdf">Datasheet</a>.
 3. Type `lsusb` to ensure that the board is connected.
-     - If you see something as " FUture Technologies...." ; This means that the FPGA Board is connected successfully and the computer system is recognising it.
-         ~~
+     - If you see something as " Future Technologies...." ; This means that the FPGA Board is connected successfully and the computer system is recognising it.
 
-</details>
+![Screenshot (320)](https://github.com/user-attachments/assets/b2b3043e-7bf8-4b30-939e-d4aea3f44157)
 
+4. Now type `make clean` to clear any previous build.
 
+![Screenshot (320)](https://github.com/user-attachments/assets/b2b3043e-7bf8-4b30-939e-d4aea3f44157)
 
+5. Now type `make build` to compile builds.
 
+![Screenshot (321)](https://github.com/user-attachments/assets/b06dcbeb-d17a-4daa-8fcb-d4456e048aeb)
 
+6. Now type `sudo make flash` to flash the FPGA Board.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Screenshot (322)](https://github.com/user-attachments/assets/50fce659-f2cb-4df8-bbbb-c8db98e1aac9)
 
 
 
 
 </details>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
+
+<details><</details>
+
+</details>
