@@ -861,7 +861,7 @@ The objective of this task is to implement a UART (Universal Asynchronous Receiv
 
 
 ## Existing Code:  
-<p>The code for the UART loopback mechanism can be found in the repository here. This code includes the necessary Verilog modules to implement the UART protocol and the loopback functionality.</p>
+<p>The code for the UART loopback mechanism can be found in the repository <a href="https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback">here</a>. This code includes the necessary Verilog modules to implement the UART protocol and the loopback functionality.</p>
 
 
 <details><summary><H3>Analysis of the Existing code</H3></summary>
@@ -1132,7 +1132,7 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 ![Screenshot (318)](https://github.com/user-attachments/assets/2fa3b2e1-e955-49a0-bf6a-6171707d0d36)
 
-<br>    ii. Now enter the PCF Fiel content and save it.
+<br>    ii. Now enter the PCF File content and save it.
 
 ![Screenshot (326)](https://github.com/user-attachments/assets/19a1b520-d79f-4c1b-a1e1-25343a7371e0)
 
@@ -1196,6 +1196,140 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 </details>
 
-<details><</details>
+<details><summary><H2>Step 4 : Testing and Verification</H2></summary>
+
+## Using Picocom for Testing and Verification
+
+1. Open the Virtual Machine.
+2. Now navigate to the `uart_loopback_project` file created earlier.
+3. Then type `sudo apt install picocom` to install the picocom.
+4. Type `picocom --version` to check the **Picocom**'s version and ensure that if it is downloaded correctly.
+5. Connect the FPGA Board.
+6. Now type `make terminal`.
+
+![Screenshot (327)](https://github.com/user-attachments/assets/ea495e87-ec2d-4a65-94ef-0d9b16d756f7)
+
+7. Now you can see that whatever you type is recieved back called "loopback".
+
+![Screenshot (328)](https://github.com/user-attachments/assets/a596bf35-7f2e-4b4b-98f2-d90fe0993cba)
+ 
+8. Now press CTRL + `a` +`x` to exit the **Picocom** terminal.
+
+![Screenshot (329)](https://github.com/user-attachments/assets/58890221-f085-4971-a359-714120462f06)
+
+
+
+
+
+</details>
+
+<details><summary><H2>Step 5 : Documentation</H2></summary>
+
+# Summary of the Report
+
+## Objective
+
+<p>The main goal of this project was to set up and test a Universal Asynchronous Receiver-Transmitter (UART) loopback system using an FPGA board. In this setup, data that is sent out is immediately received back, making it a useful way to check if UART communication is working properly. The project involved learning the theory, designing the system, building the hardware, and testing the UART loopback function on the VSDSquadron FPGA Mini.</p>
+
+<details><summary><H3>Step 1 : Study the existing code</H3></summary>
+
+**Conceptual Framework**: UART is a fundamental serial communication protocol employing distinct TX (Transmit) and RX (Receive) channels for bidirectional data transmission.
+
+**Loopback Mechanism**: The implementation of a loopback entails directly connecting the TX and RX pins, thereby enabling autonomous communication testing.
+
+**Code Analysis**:
+
+- **Top Module (top.v)**: Governs UART operations and LED-based visual feedback.
+
++ **Internal Oscillator (int_osc)**: Synthesizes high-frequency clock signals essential for timing control.
+
+* **Loopback Logic**: Implements a direct assignment of TX to RX to establish the loopback mechanism.
+
+- **RGB LED Driver**: Facilitates status indication via LED illumination corresponding to received data signals.
+
++ **UART Transmission Module (uart_tx_8n1.v)**: Employs a finite state machine (FSM) approach to manage UART data transmission.
+
+
+
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary><H3>Step 2 : Design Documentation</H3></summary>
+
+## Block Diagram illustrating the UART loopback architecture.
+
+![Screenshot (308)](https://github.com/user-attachments/assets/2af6f60c-cc63-4521-bb95-829e131f537a)
+
+## Detailed Circuit Diagram showing connections between the FPGA and any peripheral devices used.
+
+![Screenshot (310)](https://github.com/user-attachments/assets/d1efe0fd-bb97-47ab-8e7b-9046ed294381)
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary><H3>Step 3: Implementation</H3></summary>
+
+## Development & File Structure:
+
+- **Established essential project files (`Makefile`, `PCF file`, `top.v`, `uart_trx_.v`)**.
+
++ **Configured a virtualized development environment for FPGA synthesis and deployment.**
+
+## Flashing Procedure:
+
+- `make build` - Invoked to compile the Verilog HDL code.
+
++ `sudo make flash` - Executed to program the FPGA with the synthesized bitstream.
+
+* `lsusb` - Utilized to confirm hardware detection and interface recognition.
+
+
+
+
+
+
+
+
+</details>
+
+<details><summary><H3> Step 4 : Testing and Verification</H3></summary>
+
+**UART Communication Analysis via Picocom:**
+
+- Installed and configured **picocom** to establish serial communication with the FPGA.
+
+ + Conducted real-time loopback validation by transmitting characters and observing their reception.
+
+* Addressed potential misconfigurations related to baud rate mismatches and hardware connectivity
+
+**Functional Validation:**
+
+- Confirmed data integrity—ensuring transmitted symbols were identically received via the loopback.
+
++ Verified visual indications through LED state transitions, corresponding to UART activity.
+
+
+
+
+
+</details>
+
+
+
+
+</details>
 
 </details>
