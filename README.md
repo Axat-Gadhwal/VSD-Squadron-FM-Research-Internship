@@ -918,7 +918,7 @@ The RGB LED driver provides visual feedback based on the RX data:
      );
 
 
-2. . UART Transmission Module (`uart_tx_8n1.v`)
+## 2. . UART Transmission Module (`uart_tx_8n1.v`)
 
 This module handles the transmission of data over UART using the 8N1 format.
 
@@ -1333,3 +1333,38 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 </details>
 
 </details>
+
+<details><summary><H1>s</H1></summary>
+
+
+
+<details><summary><H2>Step 1 : Study the Existing Code</H2></summary>
+
+
+<details><summary><H3>Objective</H3></summary>
+
+
+
+
+</details>
+
+
+
+
+
+
+
+</details>
+
+
+
+
+
+
+
+</details>
+
+
+
+
+
