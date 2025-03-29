@@ -1523,37 +1523,60 @@ end
 
 ---
 
-## **Step 2: Hardware Setup**
 
-- Connect FPGA TX pin **(Pin 14)** to a UART-compatible device.
-- Ensure a **common ground** between FPGA and receiver.
+</details>
 
-## **Step 3: Implementation and Testing**
+<details><summary><H2>Step 2 : Design Documentation</H2></summary>
 
-1. **Build and Flash the FPGA**
-   ```bash
-   make build
-   sudo make flash
-   ```
-2. **Open a Serial Terminal**
-   ```bash
-   sudo picocom -b 9600 /dev/ttyUSB0
-   ```
-3. **Observe Output** – `'D'` should appear continuously.
+To ensure a clear understanding of the UART transmitter module, we need to create two essential diagrams:
 
----
+# 1. Block diagram detailing the UART transmitter module.
 
-## **Conclusion**
+## 1. Identify the Key Components
 
-This project successfully implements a **UART transmitter module** on an FPGA. The transmitted data can be verified through a serial terminal, ensuring reliable communication.
+Every UART transmitter has these core blocks:
 
-🚀 **This forms the foundation for more advanced UART-based FPGA applications!**
+## UART Transmitter Block Components
+
+This table summarizes the key components of the UART transmitter module:
+
+| Section             | Function                                    | Example Variable Names (Verilog) |
+|---------------------|---------------------------------------------|----------------------------------|
+| **Input Signals**   | Provide data, clock, and trigger           | `txbyte`, `clk (int_osc)`, `senddata` |
+| **Data Processing** | Stores data and tracks bit transmission    | `buf_tx`, `bits_sent`, `txbit`  |
+| **State Machine Control** | Controls the transmission process   | `state`, `Next State Logic`     |
+| **Output Signals**  | Provides serial output and status flag     | `tx`, `txdone`                  |
+
+### How to Use This Table
+- **Input Signals:** These initiate the transmission process.
+- **Data Processing:** Manages storing and shifting the data bits.
+- **State Machine Control:** Handles different states of transmission.
+- **Output Signals:** Final transmitted data and status indicator.
+
+
+
+
+
+
+
+
+## 2. Develop a circuit diagram illustrating the FPGA's UART TX pin connection to the receiving device:
+
+
+
+
+
+
+
 
 
 
 
 
 </details>
+
+
+
 
 </details>
 
