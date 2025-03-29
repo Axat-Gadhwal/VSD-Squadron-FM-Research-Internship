@@ -1338,29 +1338,222 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 
 
+
+
+## Objective
+
+<p>The purpose of this project is to develop and validate a UART transmitter module using an FPGA. This module enables serial communication by sending data from the FPGA to an external device, such as a computer or another microcontroller, through the Universal Asynchronous Receiver-Transmitter (UART) protocol.
+
+This documentation provides a detailed breakdown of the code, hardware setup, implementation process, and testing procedures.
+
+</p>
+
+## Understanding Uart Transmission
+
+UART is a widely used serial communication protocol that enables data exchange between devices. The protocol consists of two main lines:
+
+- Tx(Transmit): Sends data from the transmitting device.
++ Rx(Recieve): Recieves data at the recieving device.
+
+### Data Frame in UART(8N1 Configuration)
+
+- **Each byte of data is transmitted in the 8N1 format, meaning:**
+      + Data Bits
+* No Parity Bit
+* 1 Stop Bit
+
+A typical UART data frame consists of:
+
+1. Start Bit (1 bit, Low)
+
+2. Data Bits (8 bits, Least Significant Bit first)
+
+3. Stop Bit (1 bit, High)
+
+The baud rate (speed of transmission) for this project is 9600 bps.
+
+
+
+
+
+
 <details><summary><H2>Step 1 : Study the Existing Code</H2></summary>
 
 
-<details><summary><H3>Objective</H3></summary>
+
+## **`top.v` (Top-Level Module)**
+
+This file acts as the main control module, integrating various components of the UART transmitter.
+
+### **Module Declaration**
+
+```verilog
+module top (
+  output wire led_red,  // Red LED Output
+  output wire led_blue, // Blue LED Output
+  output wire led_green, // Green LED Output
+  output wire uarttx, // UART Transmission Pin
+  input wire hw_clk  // FPGA Clock Input
+);
+```
+
+- **`led_red, led_blue, led_green`** – Indicate the system’s status.
+- **`uarttx`** – Transmit pin for sending serial data.
+- **`hw_clk`** – Hardware clock input for timing control.
+
+### **Clock Frequency Counter**
+
+```verilog
+reg [27:0] frequency_counter_i;
+reg clk_9600 = 0;
+reg [31:0] cntr_9600 = 32'b0;
+parameter period_9600 = 625;
+```
+
+- **`frequency_counter_i`** – 28-bit counter for timing operations.
+- **`clk_9600`** – Generated clock signal for UART (9600 Hz).
+- **`cntr_9600`** – Counter to achieve the correct baud rate.
+- **`period_9600`** – Determines when to toggle `clk_9600`.
+
+### **UART Transmission Instantiation**
+
+```verilog
+uart_tx_8n1 DanUART (
+  .clk(clk_9600),
+  .txbyte("D"),
+  .senddata(frequency_counter_i[24]),
+  .tx(uarttx)
+);
+```
+
+- **`clk(clk_9600)`** – Supplies the 9600 Hz clock.
+- **`txbyte("D")`** – Sends the character `'D'` continuously.
+- **`senddata(frequency_counter_i[24])`** – Controls when data is sent.
+- **`tx(uarttx)`** – Connects to the UART TX pin.
+
+### **Clock Division for 9600 Baud Rate**
+
+```verilog
+always @(posedge int_osc) begin
+  frequency_counter_i <= frequency_counter_i + 1'b1;
+  cntr_9600 <= cntr_9600 + 1;
+  if (cntr_9600 == period_9600) begin
+    clk_9600 <= ~clk_9600;
+    cntr_9600 <= 32'b0;
+  end
+end
+```
+
+- This logic ensures **clk_9600 toggles** at the correct rate for UART transmission.
+
+---
+
+## **`uart_trx.v` (UART Transmission Logic)**
+
+This module implements the **8N1 UART transmission protocol**.
+
+### **State Machine for Transmission**
+
+```verilog
+parameter STATE_IDLE=8'd0;
+parameter STATE_STARTTX=8'd1;
+parameter STATE_TXING=8'd2;
+parameter STATE_TXDONE=8'd3;
+```
+
+- Defines **four states** for handling transmission.
+
+### **Transmission Control Logic**
+
+```verilog
+always @ (posedge clk) begin
+  if (senddata == 1 && state == STATE_IDLE) begin
+    state <= STATE_STARTTX;
+    buf_tx <= txbyte;
+    txdone <= 1'b0;
+  end
+  else if (state == STATE_IDLE) begin
+    txbit <= 1'b1;
+    txdone <= 1'b0;
+  end
+```
+
+- On `senddata` trigger, the system moves to **STATE_STARTTX**.
+- It loads the byte to be transmitted (`buf_tx`).
+
+### **Sending Start Bit (Low)**
+
+```verilog
+if (state == STATE_STARTTX) begin
+  txbit <= 1'b0;
+  state <= STATE_TXING;
+end
+```
+
+- The start bit (`0`) is sent.
+
+### **Transmitting 8 Data Bits**
+
+```verilog
+if (state == STATE_TXING && bits_sent < 8'd8) begin
+  txbit <= buf_tx[0];
+  buf_tx <= buf_tx>>1;
+  bits_sent = bits_sent + 1;
+end
+```
+
+- Bits are shifted **one by one** into `txbit`.
+
+### **Stop Bit and Completion**
+
+```verilog
+else if (state == STATE_TXING) begin
+  txbit <= 1'b1;
+  bits_sent <= 8'b0;
+  state <= STATE_TXDONE;
+end
+if (state == STATE_TXDONE) begin
+  txdone <= 1'b1;
+  state <= STATE_IDLE;
+end
+```
+
+- Sends the **stop bit (`1`)**.
+- **Returns to IDLE state** after completion.
+
+---
+
+## **Step 2: Hardware Setup**
+
+- Connect FPGA TX pin **(Pin 14)** to a UART-compatible device.
+- Ensure a **common ground** between FPGA and receiver.
+
+## **Step 3: Implementation and Testing**
+
+1. **Build and Flash the FPGA**
+   ```bash
+   make build
+   sudo make flash
+   ```
+2. **Open a Serial Terminal**
+   ```bash
+   sudo picocom -b 9600 /dev/ttyUSB0
+   ```
+3. **Observe Output** – `'D'` should appear continuously.
+
+---
+
+## **Conclusion**
+
+This project successfully implements a **UART transmitter module** on an FPGA. The transmitted data can be verified through a serial terminal, ensuring reliable communication.
+
+🚀 **This forms the foundation for more advanced UART-based FPGA applications!**
+
 
 
 
 
 </details>
-
-
-
-
-
-
-
-</details>
-
-
-
-
-
-
 
 </details>
 
