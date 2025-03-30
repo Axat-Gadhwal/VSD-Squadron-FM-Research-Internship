@@ -1553,14 +1553,24 @@ This table summarizes the key components of the UART transmitter module:
 - **State Machine Control:** Handles different states of transmission.
 - **Output Signals:** Final transmitted data and status indicator.
 
+<img src="https://github.com/user-attachments/assets/8fd1707c-9554-4d2e-98ab-0f3aeb79b644" Height=500 Weidth=400>
 
 
 
 
 
 
+# 2. Develop a circuit diagram illustrating the FPGA's UART TX pin connection to the receiving device:
 
-## 2. Develop a circuit diagram illustrating the FPGA's UART TX pin connection to the receiving device:
+## 1. Identify Key Components
+To ensure a complete circuit diagram, you need the following components:
+
+✅ FPGA Board (e.g., Lattice iCE40, Xilinx, or Intel FPGA)
+✅ UART-Compatible Device (e.g., PC, microcontroller, USB-to-UART adapter)
+✅ Voltage Level Shifter (if required, e.g., FPGA operates at 3.3V and the receiver at 5V)
+✅ Decoupling Capacitors (optional but recommended for signal stability)
+✅ Common Ground Connection (ensures proper data transmission)
+
 
 
 
