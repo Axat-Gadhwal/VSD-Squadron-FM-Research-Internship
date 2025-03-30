@@ -1565,11 +1565,15 @@ This table summarizes the key components of the UART transmitter module:
 ## 1. Identify Key Components
 To ensure a complete circuit diagram, you need the following components:
 
-✅ FPGA Board (e.g., Lattice iCE40, Xilinx, or Intel FPGA)
-✅ UART-Compatible Device (e.g., PC, microcontroller, USB-to-UART adapter)
-✅ Voltage Level Shifter (if required, e.g., FPGA operates at 3.3V and the receiver at 5V)
-✅ Decoupling Capacitors (optional but recommended for signal stability)
-✅ Common Ground Connection (ensures proper data transmission)
+<br>✅ FPGA Board (e.g., Lattice iCE40, Xilinx, or Intel FPGA)
+<br>✅ UART-Compatible Device (e.g., PC, microcontroller, USB-to-UART adapter)
+<br>✅ Voltage Level Shifter (if required, e.g., FPGA operates at 3.3V and the receiver at 5V)
+<br>✅ Decoupling Capacitors (optional but recommended for signal stability)
+<br>✅ Common Ground Connection (ensures proper data transmission)
+
+## Circuit Diagram:-
+
+![image](https://github.com/user-attachments/assets/cd24bc96-226d-4858-ad64-76666d7d7f80)
 
 
 
