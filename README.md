@@ -1589,7 +1589,45 @@ To ensure a complete circuit diagram, you need the following components:
 
 </details>
 
+<details><summary><H2>Step 3 : Implementation</H2></summary>
 
+Till this we created several files in the VM itself. But now we will transmit the code by cloning the repository, thus those files will be created/added automatically to the VM.
+
+## Steps to clone the repository
+
+1. Open the Virtual Machine.
+2. On GitHub, navigate to the main page of the repository.
+3. Above the list of files, click  Code.
+
+![image](https://github.com/user-attachments/assets/c6f9de06-8be4-47f9-a451-204a3b0a8ed5)
+> Screenshot of the list of files on the landing page of a repository. The "Code" button is highlighted with a dark orange outline.
+4. Copy the URL for the repository.
+     - To clone the repository using HTTPS, under "HTTPS", click .
+     - To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click SSH, then click .
+     - To clone a repository using GitHub CLI, click GitHub CLI, then click .
+
+![image](https://github.com/user-attachments/assets/56d427e3-1e04-4a91-9e67-2f48c54f39a3)
+> Screenshot of the "Code" dropdown menu. To the right of the HTTPS URL for the repository, a copy icon is outlined in dark orange.
+4. Open Git Bash.
+8. Change the current working directory to the location where you want the cloned directory.
+9. Type git clone, and then paste the URL you copied earlier.
+
+     git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+
+## Transmitting the code to the FPGA Board
+
+Till now we have cloned the Github repo. This basically means that we doesn't need to create files for transmission.
+
+Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/tree/main/Task%203%20necessary%20files"> folder</a>.
+
+
+
+
+
+
+
+
+</details>
 
 
 </details>
