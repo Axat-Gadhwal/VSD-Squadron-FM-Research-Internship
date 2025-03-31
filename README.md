@@ -1620,9 +1620,14 @@ Till now we have cloned the Github repo. This basically means that we doesn't ne
 
 Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/tree/main/Task%203%20necessary%20files"> folder</a>.
 
+1. Create a folder named **`uart_transmitter_module`**.
 
+![Screenshot (334)](https://github.com/user-attachments/assets/2f4e3c45-ddcb-4bef-bb5b-82ac9359d758)
 
+2. Now recall the cloning step. Ensure that before cloning, you are in the correct file/directory in which you want the file to be installed.
+3. Your repo file will be created in that file.
 
+![Screenshot (341)](https://github.com/user-attachments/assets/9e5c07b4-a167-4f55-b138-ae642e13692c)
 
 
 
