@@ -1667,7 +1667,7 @@ Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-
 ![Screenshot (348)](https://github.com/user-attachments/assets/02f58861-38c6-4eb6-a2f3-c7faa113f8fb)
 
 
-
+https://github.com/user-attachments/assets/e424f021-3df0-4597-9609-d7c4ea24119a
 
 
 
@@ -1675,6 +1675,25 @@ Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-
 
 
 </details>
+
+<details><summary><H2>Step 4 : Testing and Verification</H2></summary>
+
+1. First install putty using `sudo apt install putty` in the terminal.
+2. Then type `sudo putty` to run putty.
+
+![Screenshot (349)](https://github.com/user-attachments/assets/48f71df0-35b6-4bb6-b93a-6b3c70f54a61)
+
+3. A screen will appear.
+
+
+
+
+
+
+</details>
+
+
+
 
 
 </details>
