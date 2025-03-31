@@ -1629,6 +1629,30 @@ Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-
 
 ![Screenshot (341)](https://github.com/user-attachments/assets/9e5c07b4-a167-4f55-b138-ae642e13692c)
 
+4. Now open the Terminal and navigate to our `uart_transmitter_module` file create earlier.
+
+![Screenshot (342)](https://github.com/user-attachments/assets/f206b718-64a2-4f65-be0f-db550eb05bea)
+
+5. Now type :-
+
+       cd `VSD-Squadron-FM-Research-Internship` \ This is because that's my cloned repository name which is now a folder
+       cd `'Task 3 necessary files` \ Files storing the necessary codes
+
+![Screenshot (344)](https://github.com/user-attachments/assets/bd26c4c3-dd80-49f1-9428-8e6db04dad59)
+
+ 6. Now type `ls-ltr` to see the file contents.{For the repo}
+
+![Screenshot (343)](https://github.com/user-attachments/assets/b9fdc3f2-7cbc-4ea5-896a-cf2930495fce)
+
+7. Now type `ls-ltr` to see the file contents.{For the codes file}
+
+
+
+
+
+
+
+
 
 
 
