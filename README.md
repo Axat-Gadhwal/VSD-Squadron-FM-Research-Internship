@@ -1644,13 +1644,15 @@ Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-
 
 ![Screenshot (343)](https://github.com/user-attachments/assets/b9fdc3f2-7cbc-4ea5-896a-cf2930495fce)
 
-7. Now type `ls-ltr` to see the file contents.{For the codes file}
+7. Now type `ls-ltr` to see the file contents.{For the codes' file}
 
 ![Screenshot (344)](https://github.com/user-attachments/assets/bd26c4c3-dd80-49f1-9428-8e6db04dad59)
 
+8. Now type `make clean` to clear any previous builds.
 
+![Screenshot (345)](https://github.com/user-attachments/assets/9e51a852-ddc0-42ae-a023-68f51fc67bbc)
 
-
+9. 
 
 
 
