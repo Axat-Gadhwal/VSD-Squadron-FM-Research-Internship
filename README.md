@@ -1648,11 +1648,24 @@ Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-
 
 ![Screenshot (344)](https://github.com/user-attachments/assets/bd26c4c3-dd80-49f1-9428-8e6db04dad59)
 
-8. Now type `make clean` to clear any previous builds.
+8. Now type `lsusb` to ensure if the FPGA Board is connected or not.
 
 ![Screenshot (345)](https://github.com/user-attachments/assets/9e51a852-ddc0-42ae-a023-68f51fc67bbc)
 
-9. 
+9. `make clean` to clear any previous builds.
+
+![Screenshot (346)](https://github.com/user-attachments/assets/a5d3ac62-a01a-4272-83e2-efe6b3ebd6fe)
+
+9. Now type `make build` to compile builds.
+
+![Screenshot (347)](https://github.com/user-attachments/assets/30209715-c513-4111-83ba-bb8281a0512d)
+
+
+
+10. Now type `sudo make flash` to transmit the code.
+
+![Screenshot (348)](https://github.com/user-attachments/assets/02f58861-38c6-4eb6-a2f3-c7faa113f8fb)
+
 
 
 
