@@ -1646,6 +1646,9 @@ Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-
 
 7. Now type `ls-ltr` to see the file contents.{For the codes file}
 
+![Screenshot (344)](https://github.com/user-attachments/assets/bd26c4c3-dd80-49f1-9428-8e6db04dad59)
+
+
 
 
 
