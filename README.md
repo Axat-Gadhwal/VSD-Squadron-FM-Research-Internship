@@ -1692,7 +1692,62 @@ https://github.com/user-attachments/assets/e424f021-3df0-4597-9609-d7c4ea24119a
 
 </details>
 
+<details><summary><H2>Step 5 : Summary</H2></summary>
 
+<details><summary><H3>Step 1: Understanding UART Transmission & Analyzing the Code</H3></summary>
+
+## UART Basics
+
+- UART consists of two main lines.
+      - **TX(Transmit)**: Sends Data
+      - **RX(Recieve)**: Recieves Data
++ 8N1 Data Frame Format:-
+     - 1 Start Bit (Low)
+     - 8 Data Bits
+     - 1 Stop Bit (High)
+     - Baud Rate: 9600 bps
+
+ ##  Code Analysis
+
+ - **top.v** (Top-Level Module):
+     - Controls the Entire UART Transmission process.
+     - Key Variables: `uarttx` (TX Pin), `hw_clk` (Clock), `led_red/blue/green` (Status LED's).
+     - Implements clock division to generate a 9600 Hz clock signal for UART.
+- **uart_trx.v** (UART Transmission Logic):
+     - Implements a FSM(Finite State Machine) with four states:
+          1. IDLE: Waits for Transmission Trigger
+          2. STARTTX: Sends the start bit (0)
+          3. TXING: Sends 8 data bits
+          4. TXDONE: Sends the stop bit(1) and returns to IDLE
+     - Uses bitwise shifts to transmit the data serially.
+    
+
+
+
+
+
+
+
+</details>
+
+<details><summary><H3>Step 2 : Design Documentation</H3></summary>
+
+
+## Block diagram detailing the UART transmitter module.
+
+<img src="https://github.com/user-attachments/assets/8fd1707c-9554-4d2e-98ab-0f3aeb79b644" Height=500 Weidth=400>
+
+
+
+
+
+
+</details>
+
+
+
+
+</details>
 
 
 
