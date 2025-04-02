@@ -1737,6 +1737,75 @@ https://github.com/user-attachments/assets/e424f021-3df0-4597-9609-d7c4ea24119a
 
 <img src="https://github.com/user-attachments/assets/8fd1707c-9554-4d2e-98ab-0f3aeb79b644" Height=500 Weidth=400>
 
+## Develop a circuit diagram illustrating the FPGA's UART TX pin connection to the receiving device:
+
+![image](https://github.com/user-attachments/assets/cd24bc96-226d-4858-ad64-76666d7d7f80)
+
+
+
+
+</details>
+
+<details><summary><H3>Step 3 : Implementation (Code Transmission to FPGA Board)</H3></summary>
+
+- Cloned the repository for codes
++ Codes for transmitting the code to the FPGA Board:
+     - `make clean`
+     - `make build`
+     - `sudo make flash`
+ 
+</details>
+
+
+<details><summary><H3>Step 4 : Testing and Verification</H3></summary>
+
+### Used Putty for testing and Verification
+
+
+
+
+
+
+
+
+</details>
+
+</details>
+
+
+
+</details>
+
+<details><summary><H1>w</H1></summary>
+
+# Objective
+
+The goal of this project is to implement a UART transmitter that communicates real-time sensor data from an FPGA to an external device. This enables the FPGA to relay information gathered from sensors, facilitating data monitoring and analysis.
+
+# Understading UART Transmission
+
+### UART (Universal Asynchronous Receiver-Transmitter) is a serial communication protocol that allows for asynchronous data transmission between devices. It operates using two primary lines:
+
+- **Tx (Transmit)**: The line used to send data from the transmitter.
++ **Rx (Receive)**: The line used to receive data at the receiving end.
+ # Data Frame Structure in UART (8N1 Configuration)
+### In the 8N1 configuration, each data byte is structured as follows:
+
+- **Start Bit**: 1 bit (Low) indicating the beginning of transmission.
++ **Data Bits**: 8 bits of actual data, sent least significant bit first.
+* **Stop Bit**: 1 bit (High) indicating the end of transmission.
+
+> The standard baud rate for this project is set to 9600 bps.
+
+<details><summary><h2>Step 1: Study the Existing Code</h2></summary>
+
+## **`top.v`(Top Level Module)**
+
+This module integrates the sensor input and the UART transmitter, managing the flow of data from the sensor to the UART output.
+
+### Module Declaration
+
+
 
 
 
@@ -1745,15 +1814,7 @@ https://github.com/user-attachments/assets/e424f021-3df0-4597-9609-d7c4ea24119a
 </details>
 
 
-
-
 </details>
-
-
-
-</details>
-
-
 
 
 
