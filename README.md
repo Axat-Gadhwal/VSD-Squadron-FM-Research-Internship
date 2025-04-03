@@ -1805,12 +1805,40 @@ This module integrates the sensor input and the UART transmitter, managing the f
 
 ### Module Declaration
 
+     module top (
+       output wire led_status, // Status LED Output
+       output wire uart_tx,    // UART Transmission Pin
+       input wire hw_clk,      // FPGA Clock Input
+       input wire sensor_input  // Sensor Data Input
+     );
+
+
+- `led_status`: Indicates the operational status of the system.
+- `uart_tx`: The pin used for UART transmission.
+- `hw_clk`: The clock signal for the FPGA.
+- `sensor_input`: The data input from the sensor.
+
+reg [7:0] sensor_data; // Register to hold the sensor data
+
+### Sensor Data Handling
+
+- `sensor_data`: Stores the latest reading from the sensor.
+
+### UART Transmission Instantiation
+
+     uart_tx_8n1 uart_transmitter (
+       .clk(clk_9600),
+       .txbyte(sensor_data),
+       .senddata(trigger_send),
+       .tx(uart_tx)
+     );
 
 
 
+- `txbyte(sensor_data)`: Sends the sensor data through UART.
++ `trigger_send`: A signal that initiates the transmission when the sensor data is ready.
 
-
-
+### Clock Division for UART Baud Rate
 </details>
 
 
