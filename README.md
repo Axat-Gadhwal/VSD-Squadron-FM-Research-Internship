@@ -1839,10 +1839,195 @@ reg [7:0] sensor_data; // Register to hold the sensor data
 + `trigger_send`: A signal that initiates the transmission when the sensor data is ready.
 
 ### Clock Division for UART Baud Rate
-</details>
+
+     always @(posedge hw_clk) begin
+       // Logic to generate a 9600 Hz clock for UART transmission
+     end
+
+- This section ensures that the clock frequency is suitable for UART communication.
+
+## **`uart_tx_8n1.v`** (UART Transmission Logic)
+
+This module implements the UART transmission protocol, specifically the 8N1 format.
+
+### State Machine Definition
+
+    parameter STATE_IDLE=8'd0;
+    parameter STATE_STARTTX=8'd1;
+    parameter STATE_TXING=8'd2;
+    parameter STATE_TXDONE=8'd3;
+
+- The state machine consists of four states to manage the transmission process.
+
+### Transmission Control Logic
+
+    always @ (posedge clk) begin
+      if (senddata == 1 && state == STATE_IDLE) begin
+        state <= STATE_STARTTX;
+        buf_tx <= txbyte;
+        txdone <= 1'b0;
+      end
+      else if (state == STATE_IDLE) begin
+        txbit <= 1'b1; // Idle state is high
+        txdone <= 1'b0;
+      end
+    
+
+ - The system transitions to STATE_STARTTX when data is ready to be sent.
+
+### Sending the Start Bit
+
+    if (state == STATE_STARTTX) begin
+      txbit <= 1'b0; // Start bit is low
+      state <= STATE_TXING;
+    end
+
+- The start bit is transmitted first
+
+### Data Bit Transmission
+
+    if (state == STATE_TXING && bits_sent < 8'd8) begin
+      txbit <= buf_tx[0]; // Send the least significant bit
+      buf_tx <= buf_tx >> 1; // Shift the buffer
+      bits_sent = bits_sent + 1;
+    end
+
+- Each Data Bit is sent sequentially
+
+### Stop Bit and State Reset
+
+    else if (state == STATE_TXING) begin
+      txbit <= 1'b1; // Stop bit is high
+      bits_sent <= 8'b0;
+      state <= STATE_TXDONE;
+     end
+    if (state == STATE_TXDONE) begin
+      txdone <= 1'b1; // Transmission complete
+      state <= STATE_IDLE; // Return to idle state
+    end
+
+
+
+
 
 
 </details>
+
+
+<details><summary><H2>Step 2 : Design Documentation</H2></summary>
+
+
+![image](https://github.com/user-attachments/assets/cb3894a3-8c65-41ae-b42a-cd2561de83f8)
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
+
+
+<details><summary><H2>Step 3 : Implementation</H2></summary>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
+
+
+
+
+
+
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
