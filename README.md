@@ -1954,7 +1954,7 @@ This module implements the UART transmission protocol, specifically the 8N1 form
 
 ### That's all, the code is transmitted
 
-> Refer to this <a href="https://r.search.yahoo.com/_ylt=AwrPrtC7O_NnhtMJzBLnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1744022587/RO=10/RU=https%3a%2f%2fwww.technipages.com%2fhow-to-clone-a-git-repository-in-linux%2f/RK=2/RS=ChEvN_Y4JzvIr4JaBw1eynoJXHI"> page</a> for more info on cloning git repo.
+> Refer to this <a href="https://www.technipages.com/how-to-clone-a-git-repository-in-linux/"> page</a> for more info on cloning git repo.
 
 ## Behaviour after transmitting
 
