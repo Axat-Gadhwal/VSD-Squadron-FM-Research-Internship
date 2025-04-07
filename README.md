@@ -1946,6 +1946,18 @@ This module implements the UART transmission protocol, specifically the 8N1 form
 <details><summary><H2>Step 3 : Implementation</H2></summary>
 
 
+1. Create the following <a href="https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship/tree/main/Task%204%20necessary%20files"> files.</a>
+2. Now once again clone the github repository
+3. `make clean` to clear any previous builds
+4. `make build` to compile builds
+5. `sudo make flash` to transmit the code to the FPGA Board
+
+### That's all, the code is transmitted
+
+> Refer to this <a href="https://r.search.yahoo.com/_ylt=AwrPrtC7O_NnhtMJzBLnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1744022587/RO=10/RU=https%3a%2f%2fwww.technipages.com%2fhow-to-clone-a-git-repository-in-linux%2f/RK=2/RS=ChEvN_Y4JzvIr4JaBw1eynoJXHI"> page</a> for more info on cloning git repo.
+
+## Behaviour after transmitting
+
 
 
 
