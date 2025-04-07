@@ -1667,7 +1667,13 @@ Access the necessary files in this <a href="https://github.com/Axat-Gadhwal/VSD-
 ![Screenshot (348)](https://github.com/user-attachments/assets/02f58861-38c6-4eb6-a2f3-c7faa113f8fb)
 
 
-https://github.com/user-attachments/assets/e424f021-3df0-4597-9609-d7c4ea24119a
+
+## Now we have transmitted the code to the fpga board. 
+
+
+
+https://github.com/user-attachments/assets/47720077-bb51-4747-b3ce-786cc8081268
+
 
 
 
@@ -1678,12 +1684,16 @@ https://github.com/user-attachments/assets/e424f021-3df0-4597-9609-d7c4ea24119a
 
 <details><summary><H2>Step 4 : Testing and Verification</H2></summary>
 
-1. First install putty using `sudo apt install putty` in the terminal.
-2. Then type `sudo putty` to run putty.
+1. First install putty on your host device.
+2. Now run puTTY{after transmitting the code to the FPGA Board.
+> Ensure that the Board is disconnected from the Virtual Machine so that the codes remain transmitted.
+3. After starting puTTY, a user interface will come. Select he **Serial** and then change the port to **COM3**.
 
-![Screenshot (349)](https://github.com/user-attachments/assets/48f71df0-35b6-4bb6-b93a-6b3c70f54a61)
+![Screenshot (357)](https://github.com/user-attachments/assets/00d78223-9089-460f-9954-9f0e908e5dce)
 
-3. A screen will appear.
+## Final Behaviour
+
+https://github.com/user-attachments/assets/9c62f82d-9216-45dd-82f2-3e4ed478d57e
 
 
 
@@ -1959,8 +1969,6 @@ This module implements the UART transmission protocol, specifically the 8N1 form
 
 
 </details>
-
-
 
 
 
