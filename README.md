@@ -2008,6 +2008,90 @@ https://github.com/user-attachments/assets/bf702a5c-e837-48aa-980d-676af5acbb00
 </details>
 
 
+<details><summary><H2>Step 5 : Summary</H2></summary>
+
+
+<details><summmary><H3>Step 1 : </H3></summmary>
+
+1.  # **`top.v`** (Top-Level Module):
+
+**Purpose**: Integrates sensor input and UART transmitter, managing data flow from the sensor to UART output.​
+
+## Key Components:
+
+- led_status: Indicates system operational status.​
+
+- uart_tx: UART transmission pin.​
+
+- hw_clk: FPGA clock input.​
+
+- sensor_input: Sensor data input.​
+  
+- sensor_data: Register to hold sensor data.​
+
+**2. Sensor Data Handling:**
+
+- `sensor_data` stores the latest reading from the sensor.​
+
+**3. UART Transmission Instantiation:**
+
+Instantiates `uart_tx_8n1` module with:​
+
+- clk(clk_9600): Clock signal for UART.​
+
+- txbyte(sensor_data): Data byte to transmit.​
+
+- senddata(trigger_send): Signal to initiate transmission.​
+
+- tx(uart_tx): UART transmission line.​
+
+**4. Clock Division for UART Baud Rate:**
+
+Generates a 9600 Hz clock from the FPGA's main clock to match the UART baud rate.​
+
+**5. uart_tx_8n1.v (UART Transmission Logic):**
+
+**State Machine States:**
+
+- STATE_IDLE: Idle state.​
+
+- STATE_STARTTX: Start bit transmission.​
+
+- STATE_TXING: Data bits transmission.​
+
+- STATE_TXDONE: Transmission complete.​
+
+**Transmission Control Logic:**
+
+- Transitions between states based on senddata signal and manages txbit output accordingly.​
+
+**Data Bit Transmission:**
+
+- Sends each bit of buf_tx sequentially, shifting the buffer after each bit.​
+
+**Stop Bit and State Reset:**
+
+- After all data bits are sent, transmits the stop bit and resets the state machine to idle.​
+
+</details>
+
+<details><summary><H3>Step 2 : Design Documentation</H3></summary>
+
+
+Clone the Github repository using:
+
+
+
+
+
+
+
+</details>
+
+
+
+
+</details>
 
 
 </details>
