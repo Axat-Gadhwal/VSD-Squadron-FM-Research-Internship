@@ -1334,7 +1334,7 @@ In the UART loopback mechanism, peripheral devices play a crucial role in enhanc
 
 </details>
 
-<details><summary><H1>s</H1></summary>
+<details><summary><H1>Task 3</H1></summary>
 
 
 
@@ -1786,7 +1786,7 @@ https://github.com/user-attachments/assets/9c62f82d-9216-45dd-82f2-3e4ed478d57e
 
 </details>
 
-<details><summary><H1>w</H1></summary>
+<details><summary><H1>Task 4</H1></summary>
 
 # Objective
 
@@ -2011,7 +2011,7 @@ https://github.com/user-attachments/assets/bf702a5c-e837-48aa-980d-676af5acbb00
 <details><summary><H2>Step 5 : Summary</H2></summary>
 
 
-<details><summmary><H3>Step 1 : </H3></summmary>
+<details><summary><H3>Step 1 : </H3></summary>
 
 1.  # **`top.v`** (Top-Level Module):
 
@@ -2078,10 +2078,19 @@ Generates a 9600 Hz clock from the FPGA's main clock to match the UART baud rate
 <details><summary><H3>Step 2 : Design Documentation</H3></summary>
 
 
-Clone the Github repository using:
+</details>
 
+<details><summary><H3>Step 3 : Implementation</H3></summary>
 
+Clone the Github repository using the following code:
 
+    https://github.com/Axat-Gadhwal/VSD-Squadron-FM-Research-Internship.git
+
+Codes for transmitting the code to the FPGA Board:
+
+1. `make clean`
+2. `make build`
+3. `sudo make flash`
 
 
 
@@ -2089,14 +2098,164 @@ Clone the Github repository using:
 </details>
 
 
+<details><summary><H3>Testing and Verification</H3></summary>
 
+### Used puTTY for Testing and Verification
+
+
+
+## FInal Behaviour
+
+
+https://github.com/user-attachments/assets/bf702a5c-e837-48aa-980d-676af5acbb00
+
+
+
+</details>
 
 </details>
 
 
 </details>
 
+<details><summary><H1>Task 5 & Task 6</H1></summary>
 
+Generate the Github readme code for this and provide all codes and things. DOn't ask me "iturn0image0turn0image1turn0image2turn0image4Absolutely! Let's walk through the complete process of building a **Mini Oscilloscope** using the **VSD Squadron FPGA Mini** board. This guide covers everything from purchasing components to writing Verilog code and assembling the hardware.
+
+---
+
+## 🛒 Components and Where to Buy
+
+Here's a list of required components along with suggested online stores in India:
+
+1. **VSD Squadron FPGA Mini Board**
+   - **Buy from:** [VLSI System Design](https://www.vlsisystemdesign.com/vsdsquadronfm/) or [Amazon India](https://www.amazon.in/dp/B0DWMTMV4B)
+
+2. **MCP3008 - 8-Channel 10-Bit ADC with SPI Interface**
+   - **Buy from:**
+     - [DNA Technology](https://www.dnatechindia.com/MCP3008-10-Bit-ADC.html)
+     - [Robu.in](https://robu.in/product/mcp3008-8-channel-10-bit-a-d-converter-with-spi-interface-ic-dip-16-package/)
+     - [Amazon India](https://www.amazon.in/MCP3008-IC-8-Channel-10-Bit-Interface/dp/B09HN4XCT9)
+
+3. **LM358 Dual Op-Amp**
+   - **Buy from:** [Parallax](https://www.parallax.com/product/lm358-dual-op-amp/)
+
+4. **1.3" SPI OLED Display (128x64)**
+   - **Buy from:**
+     - [KitsGuru](https://kitsguru.com/products/1-3-inch-128-64-oled-display-screen-module-with-spi-serial-interface-v2)
+     - [Zbotic](https://zbotic.in/product/1-3-inch-spi-oled-lcd-module-6pinwith-gnd-vcc-white-sh1106-chip/)
+
+5. **400-Point Solderless Breadboard**
+   - **Buy from:**
+     - [A2D Electronics](https://a2delectronics.ca/shop/hardware/400-point-solderless-breadboard/)
+     - [iFuture Technology](https://ifuturetech.org/product/400-point-solderless-breadboard/)
+
+6. **Tactile Push Buttons**
+   - **Buy from:** [Electronic Pro](https://www.electronicpro.co.za/products/3pcs-15-types-tactile-push-button-switch-micro-switch-dip-smd-4-pin-for-induction-cooker-electrical)
+
+7. **Miscellaneous**
+   - Jumper wires, resistors, capacitors, and a USB cable for programming the FPGA board.
+
+---
+
+## 🛠️ Project Overview
+
+### Objective
+Develop a mini digital oscilloscope that can:
+- Sample analog signals using the MCP3008 ADC.
+- Process the data on the VSD Squadron FPGA Mini.
+- Display waveforms on a 1.3" SPI OLED screen.
+- Allow user interaction through push buttons for adjusting settings.
+
+---
+
+## 🔧 Hardware Setup
+
+1. **Signal Conditioning**
+   - Use the LM358 op-amp to scale and offset the input analog signal to match the 0-3.3V range suitable for the MCP3008 ADC.
+
+2. **Connecting MCP3008 to FPGA**
+   - **MCP3008 Pins:**
+     - VDD → 3.3V
+     - VREF → 3.3V
+     - AGND & DGND → Ground
+     - CLK, DOUT (MISO), DIN (MOSI), CS → Connect to FPGA GPIOs
+
+3. **Connecting OLED Display to FPGA**
+   - **OLED Pins:**
+     - GND → Ground
+     - VCC → 3.3V
+     - SCL → FPGA GPIO (SPI Clock)
+     - SDA → FPGA GPIO (SPI Data)
+     - RES, DC, CS → FPGA GPIOs
+
+4. **Push Buttons**
+   - Connect one terminal to FPGA GPIO and the other to ground. Use internal pull-up resistors in the FPGA or external pull-up resistors.
+
+---
+
+## 🧑‍💻 Verilog Modules
+
+1. **SPI Master for MCP3008 (`spi_master.v`)**
+   - Handles SPI communication to read analog values from the MCP3008.
+
+2. **ADC Controller (`adc_controller.v`)**
+   - Initiates SPI transactions and processes the received data.
+
+3. **OLED Driver (`oled_driver.v`)**
+   - Manages communication with the OLED display to render waveforms.
+
+4. **Waveform Buffer (`waveform_buffer.v`)**
+   - Stores sampled data for display.
+
+5. **Button Debouncer (`debouncer.v`)**
+   - Debounces push button inputs.
+
+6. **Top Module (`top.v`)**
+   - Integrates all modules and defines the overall system behavior.
+
+---
+
+## 🧪 Simulation and Testing
+
+1. **Simulate Individual Modules**
+   - Use simulation tools like Icarus Verilog and GTKWave to test each module.
+
+2. **Integrate and Simulate the System**
+   - Combine modules and simulate the entire system to ensure correct interaction.
+
+3. **Hardware Testing**
+   - Program the FPGA with the synthesized bitstream.
+   - Connect the hardware components as described.
+   - Use a function generator or a variable voltage source to test the oscilloscope functionality.
+
+---
+
+## 📄 Documentation and Demonstration
+
+1. **Documentation**
+   - Create a comprehensive document detailing:
+     - System architecture and block diagrams.
+     - Verilog code with explanations.
+     - Hardware connections and schematics.
+     - Testing procedures and results.
+
+2. **Demonstration Video**
+   - Record a short video showcasing:
+     - The oscilloscope in operation.
+     - Adjusting settings using push buttons.
+     - Displaying different waveforms.
+
+---
+
+Feel free to ask for specific Verilog code snippets or further assistance with any of the steps mentioned above! "
+
+
+
+
+
+
+</details>
 
 
 
