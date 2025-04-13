@@ -1960,6 +1960,13 @@ This module implements the UART transmission protocol, specifically the 8N1 form
 
 
 
+https://github.com/user-attachments/assets/23831507-02f8-4645-a49f-a6db1f7693ca
+
+
+
+
+
+
 
 
 
@@ -1975,7 +1982,30 @@ This module implements the UART transmission protocol, specifically the 8N1 form
 </details>
 
 
+<details><summary><H2>Step 4 : Testing and Verification</H2></summary>
 
+
+> Ensure that the FPGA Board is disconnected from the VM
+
+## Final Behaviour
+
+https://github.com/user-attachments/assets/bf702a5c-e837-48aa-980d-676af5acbb00
+
+
+### You will continously recieve D's.
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
 
 
 
