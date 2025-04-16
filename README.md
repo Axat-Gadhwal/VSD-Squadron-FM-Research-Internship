@@ -2230,24 +2230,7 @@ Develop a mini digital oscilloscope that can:
 
 ---
 
-## 📄 Documentation and Demonstration
 
-1. **Documentation**
-   - Create a comprehensive document detailing:
-     - System architecture and block diagrams.
-     - Verilog code with explanations.
-     - Hardware connections and schematics.
-     - Testing procedures and results.
-
-2. **Demonstration Video**
-   - Record a short video showcasing:
-     - The oscilloscope in operation.
-     - Adjusting settings using push buttons.
-     - Displaying different waveforms.
-
----
-
-Feel free to ask for specific Verilog code snippets or further assistance with any of the steps mentioned above! "
 
 
 
