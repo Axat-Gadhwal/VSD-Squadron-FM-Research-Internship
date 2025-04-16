@@ -2120,7 +2120,6 @@ https://github.com/user-attachments/assets/bf702a5c-e837-48aa-980d-676af5acbb00
 
 <details><summary><H1>Task 5 & Task 6</H1></summary>
 
-Generate the Github readme code for this and provide all codes and things. DOn't ask me "iturn0image0turn0image1turn0image2turn0image4Absolutely! Let's walk through the complete process of building a **Mini Oscilloscope** using the **VSD Squadron FPGA Mini** board. This guide covers everything from purchasing components to writing Verilog code and assembling the hardware.
 
 ---
 
