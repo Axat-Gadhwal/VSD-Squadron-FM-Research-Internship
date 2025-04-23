@@ -1,42 +1,37 @@
-
-//===================================================================
-// 1) HC-SR04 Ultrasonic Sensor Module (No external 'rst' input)
-//===================================================================
 module hc_sr04 #(
-  parameter TEN_US = 10'd120  // ~10µs at 12MHz
+parameter ten_us = 10'd120  // ~120 cycles for ~10µs at 12MHz
 )(
-  input             clk,           // ~12 MHz clock
-  input             measure,       // Start measurement when IDLE
-  output reg [1:0]  state,         // Optional debug output
-  output            ready,         // High when ready for next measurement
-  input             echo,          // ECHO pin from HC-SR04
-  output            trig,          // TRIG pin to HC-SR04
-  output reg [23:0] distance_raw,  // Raw count of echo duration
-  output reg [15:0] distance_cm    // Calculated distance in cm
-  output reg buzzer_signal = 0 
+input             clk,         // ~12 MHz clock
+input             measure,     // start a measurement when in IDLE
+  output reg [1:0]  state,       // optional debug: current state
+  output            ready,       // high in IDLE (between measurements)
+  input             echo,        // ECHO pin from HC-SR04
+  output            trig,        // TRIG pin to HC-SR04
+  output reg [23:0] distanceRAW, // raw cycle count while echo=1
+  output reg [15:0] distance_cm  // computed distance in cm
 );
 
   // -----------------------------------------
-  // State Definitions
+  // State definitions
   // -----------------------------------------
-  localparam IDLE        = 2'b00,
-             TRIGGER     = 2'b01,
-             WAIT        = 2'b11,
-             COUNT_ECHO  = 2'b10;
+  localparam IDLE      = 2'b00,
+             TRIGGER   = 2'b01,
+             WAIT      = 2'b11,
+             COUNTECHO = 2'b10;
 
+  // 'ready' is high in IDLE
   assign ready = (state == IDLE);
 
-  reg [9:0] trig_counter;
-  wire trig_done = (trig_counter == TEN_US);
+  // 10-bit counter for ~10µs TRIGGER
+  reg [9:0] counter;
+  wire trigcountDONE = (counter == ten_us);
 
-  // -----------------------------------------
-  // Initial Values
-  // -----------------------------------------
+  // Initialize registers (for simulation & synthesis without reset)
   initial begin
-    state         = IDLE;
-    distance_raw  = 24'd0;
-    distance_cm   = 16'd0;
-    trig_counter  = 10'd0;
+    state       = IDLE;
+    distanceRAW = 24'd0;
+    distance_cm = 16'd0;
+    counter     = 10'd0;
   end
 
   // -----------------------------------------
@@ -45,82 +40,88 @@ module hc_sr04 #(
   always @(posedge clk) begin
     case (state)
       IDLE: begin
+        // Wait for measure pulse
         if (measure && ready)
           state <= TRIGGER;
       end
 
-      TRIGGER: begin
-        if (trig_done)
-          state <= WAIT;
-      end
+  TRIGGER: begin
+    // ~10µs pulse, then WAIT
+    if (trigcountDONE)
+      state <= WAIT;
+  end
 
-      WAIT: begin
-        if (echo)
-          state <= COUNT_ECHO;
-      end
+  WAIT: begin
+    // Wait for echo rising edge
+    if (echo)
+      state <= COUNTECHO;
+  end
 
-      COUNT_ECHO: begin
-        if (!echo)
-          state <= IDLE;
-      end
+  COUNTECHO: begin
+    // Once echo goes low => measurement done
+    if (!echo)
+      state <= IDLE;
+  end
 
-      default: state <= IDLE;
-    endcase
+  default: state <= IDLE;
+endcase
   end
 
   // -----------------------------------------
-  // 2) TRIG Output Logic
+  // 2) TRIG output is high in TRIGGER
   // -----------------------------------------
   assign trig = (state == TRIGGER);
 
   // -----------------------------------------
-  // 3) Generate ~10µs Trigger Pulse
+  // 3) Generate ~10µs trigger pulse
   // -----------------------------------------
   always @(posedge clk) begin
-    if (state == IDLE)
-      trig_counter <= 10'd0;
-    else if (state == TRIGGER)
-      trig_counter <= trig_counter + 1'b1;
+    if (state == IDLE) begin
+      counter <= 10'd0;
+    end
+    else if (state == TRIGGER) begin
+      counter <= counter + 1'b1;
+    end 
+    // No else needed; once we exit TRIGGER, we stop incrementing.
+    end
+
+  // -----------------------------------------
+  // 4) distanceRAW increments while ECHO=1
+  // -----------------------------------------
+  always @(posedge clk) begin
+    if (state == WAIT) begin
+      // Reset before new measurement
+      distanceRAW <= 24'd0;
+    end
+    else if (state == COUNTECHO) begin
+      // Add 1 each clock cycle while echo=1
+      distanceRAW <= distanceRAW + 1'b1;
+    end
   end
 
   // -----------------------------------------
-  // 4) Count Echo Pulse Duration
+  // 5) Convert distanceRAW to centimeters
   // -----------------------------------------
+  // distance_cm = (distanceRAW * 34300) / (2 * 12000000)
   always @(posedge clk) begin
-    if (state == WAIT)
-      distance_raw <= 24'd0;
-    else if (state == COUNT_ECHO)
-      distance_raw <= distance_raw + 1'b1;
-  end
-
-  // -----------------------------------------
-  // 5) Convert Raw Count to Distance (cm)
-  // distance_cm = (distance_raw * 34300) / 24_000_000;
-  // -----------------------------------------
-  always @(posedge clk) begin
-    distance_cm <= (distance_raw * 34300) / 24_000_000;
-    if(distance_cm <= 5)
-          buzzer_signal <= 1;
-  else
-          buzzer_signal <= 0;
+    distance_cm <= (distanceRAW * 34300) / (2 * 12000000);
   end
 
 endmodule
 
 //===================================================================
-// 2) Refresher Module (~50ms or ~250ms pulse generator)
+// 2) Refresher for ~50ms or ~250ms pulses
 //===================================================================
-module refresher250ms (
-  input  clk,        // 12MHz clock
-  input  en,         // Enable signal
-  output measure     // Single-cycle pulse
+module refresher250ms(
+  input  clk,  // 12MHz
+  input  en,
+  output measure
 );
+  // For ~50ms at 12MHz: 12,000,000 * 0.05 = 600,000
+  // For ~250ms at 12MHz: 12,000,000 * 0.25 = 3,000,000
+  reg [18:0] counter;
 
-  // Parameter for easy interval adjustment
-  parameter COUNT_MAX = 22'd600_000;  // ~50ms (use 3_000_000 for ~250ms)
-
-  reg [21:0] counter;
-
+  // measure = 1 if counter == 1 => single‐cycle pulse
   assign measure = (counter == 22'd1);
 
   initial begin
@@ -128,10 +129,10 @@ module refresher250ms (
   end
 
   always @(posedge clk) begin
-    if (!en || counter == COUNT_MAX)
-      counter <= 22'd0;
-    else
-      counter <= counter + 1'b1;
+    if (~en || (counter == 22'd600000))  
+  // change to 3_000_000 if you want 250ms
+  counter <= 22'd0;
+else
+  counter <= counter + 1;
   end
-
 endmodule
