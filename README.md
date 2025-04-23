@@ -2122,111 +2122,166 @@ https://github.com/user-attachments/assets/bf702a5c-e837-48aa-980d-676af5acbb00
 
 
 ---
+## What this project do?
 
-## 🛒 Components and Where to Buy
+This theme interface with the sensors to receive the data sensed, and sending this data to the FPGA and then with the GPIO pins transmit the outpuit results to an external device (example buzzer). In this project we will make a tochless bell using the VSDSquadronFM board and with a sensor named HC-SR04 ultrasonic sensor.
 
-Here's a list of required components along with suggested online stores in India:
+## Required software and hardware components
 
-1. **VSD Squadron FPGA Mini Board**
-   - **Buy from:** [VLSI System Design](https://www.vlsisystemdesign.com/vsdsquadronfm/) or [Amazon India](https://www.amazon.in/dp/B0DWMTMV4B)
+### Hardware
 
-2. **MCP3008 - 8-Channel 10-Bit ADC with SPI Interface**
-   - **Buy from:**
-     - [DNA Technology](https://www.dnatechindia.com/MCP3008-10-Bit-ADC.html)
-     - [Robu.in](https://robu.in/product/mcp3008-8-channel-10-bit-a-d-converter-with-spi-interface-ic-dip-16-package/)
-     - [Amazon India](https://www.amazon.in/MCP3008-IC-8-Channel-10-Bit-Interface/dp/B09HN4XCT9)
+- VSDSquadronFM FPGA board
++ HC-SR04 ultrasonic sensor
+* A buzzer
 
-3. **LM358 Dual Op-Amp**
-   - **Buy from:** [Parallax](https://www.parallax.com/product/lm358-dual-op-amp/)
+### Software
 
-4. **1.3" SPI OLED Display (128x64)**
-   - **Buy from:**
-     - [KitsGuru](https://kitsguru.com/products/1-3-inch-128-64-oled-display-screen-module-with-spi-serial-interface-v2)
-     - [Zbotic](https://zbotic.in/product/1-3-inch-spi-oled-lcd-module-6pinwith-gnd-vcc-white-sh1106-chip/)
+* Virtual Ubuntu software(for programming)
+* Docklight
 
-5. **400-Point Solderless Breadboard**
-   - **Buy from:**
-     - [A2D Electronics](https://a2delectronics.ca/shop/hardware/400-point-solderless-breadboard/)
-     - [iFuture Technology](https://ifuturetech.org/product/400-point-solderless-breadboard/)
+# Step1: Analysis of the existing verilog code
 
-6. **Tactile Push Buttons**
-   - **Buy from:** [Electronic Pro](https://www.electronicpro.co.za/products/3pcs-15-types-tactile-push-button-switch-micro-switch-dip-smd-4-pin-for-induction-cooker-electrical)
+The existing verilog code can be accessed here. The top module integrates an ultrasonic sensor to measure distance, transmits the measured distance over UART, and controls RGB LEDs based on the distance.
 
-7. **Miscellaneous**
-   - Jumper wires, resistors, capacitors, and a USB cable for programming the FPGA board.
+## Module declaration
 
----
+The module has several input and output ports:
 
-## 🛠️ Project Overview
+### Outputs
 
-### Objective
-Develop a mini digital oscilloscope that can:
-- Sample analog signals using the MCP3008 ADC.
-- Process the data on the VSD Squadron FPGA Mini.
-- Display waveforms on a 1.3" SPI OLED screen.
-- Allow user interaction through push buttons for adjusting settings.
+- led_red, led_blue, led_green: Control the RGB LEDs.
+- uarttx: UART transmission pin.
+- trig: Trigger output for the ultrasonic sensor.
+- buzzer: Buzzer signal.
 
----
+### Inputs
 
-## 🔧 Hardware Setup
+- uartx: UART receiver pin.
+- hw_clk: Hardware clock input.
+- echo: Echo signal from the ultrasonic sensor.
 
-1. **Signal Conditioning**
-   - Use the LM358 op-amp to scale and offset the input analog signal to match the 0-3.3V range suitable for the MCP3008 ADC.
+### Internal Oscillator and counter
 
-2. **Connecting MCP3008 to FPGA**
-   - **MCP3008 Pins:**
-     - VDD → 3.3V
-     - VREF → 3.3V
-     - AGND & DGND → Ground
-     - CLK, DOUT (MISO), DIN (MOSI), CS → Connect to FPGA GPIOs
+Uses a high-frequency oscillator (SB_HFOSC) to generate a 12MHz clock signal (int_osc). And generates a 9600 Hz clock (clk_9600) using a counter (cntr_9600) to divide the 12MHz clock.
 
-3. **Connecting OLED Display to FPGA**
-   - **OLED Pins:**
-     - GND → Ground
-     - VCC → 3.3V
-     - SCL → FPGA GPIO (SPI Clock)
-     - SDA → FPGA GPIO (SPI Data)
-     - RES, DC, CS → FPGA GPIOs
+### Ultasonic senser signals
 
-4. **Push Buttons**
-   - Connect one terminal to FPGA GPIO and the other to ground. Use internal pull-up resistors in the FPGA or external pull-up resistors.
+Declares signals for distance measurement and sensor control:
 
----
+- distanceRAW, distance_cm: Raw and processed distance values.
+- sensor_ready: Indicates if the sensor is ready.
+- measure: Control signal for measurement.
+- buzzer_signal: Signal to control the buzzer.
 
-## 🧑‍💻 Verilog Modules
+### Finite state machine to print distance_cn as ASCII
 
-1. **SPI Master for MCP3008 (`spi_master.v`)**
-   - Handles SPI communication to read analog values from the MCP3008.
+Implements an FSM to convert the distance measurement (distance_cm) into ASCII characters and transmit via UART: States:
 
-2. **ADC Controller (`adc_controller.v`)**
-   - Initiates SPI transactions and processes the received data.
+- IDLE: Waits for sensor readiness.
+- DIGIT_4 to DIGIT_0: Converts each digit of the distance value to ASCII.
+- END_CR: Sends carriage return (CR).
+- SEND_LF: Sends line feed (LF).
+- DONE: Completes the transmission.
 
-3. **OLED Driver (`oled_driver.v`)**
-   - Manages communication with the OLED display to render waveforms.
+The top module integrates an ultrasonic sensor to measure distance, transmits the measured distance over UART, and controls RGB LEDs based on the distance. The FSM ensures that the distance is converted to ASCII and sent over UART, and the LEDs provide a visual indication of proximity.
 
-4. **Waveform Buffer (`waveform_buffer.v`)**
-   - Stores sampled data for display.
+# Analysis of the Ultra sonic sensor module (ultra_sonic_sensor.v)
 
-5. **Button Debouncer (`debouncer.v`)**
-   - Debounces push button inputs.
+The verilog code for the HC-SR04 module can be accessed here.
 
-6. **Top Module (`top.v`)**
-   - Integrates all modules and defines the overall system behavior.
+## Module declaration
 
----
+The module explains some input and output ports:
 
-## 🧪 Simulation and Testing
+- clk: System clock input.
+- measure: Signal to start the measurement.
+- state: Current state of the finite state machine (FSM).
+- ready: Indicates if the module is ready for a new measurement.
+- echo: Echo signal from the ultrasonic sensor.
+- trig: Trigger signal to the ultrasonic sensor.
+- distanceRAW: Raw distance measurement in clock cycles.
+- distance_cm: Converted distance in centimeters.
+- buzzer_signal: Signal to activate a buzzer if the distance is less than or equal to 5 cm.
 
-1. **Simulate Individual Modules**
-   - Use simulation tools like Icarus Verilog and GTKWave to test each module.
+### State definitions
 
-2. **Integrate and Simulate the System**
-   - Combine modules and simulate the entire system to ensure correct interaction.
+- IDLE: Waiting for a measurement pulse.
+- TRIGGER: Sending the trigger pulse.
+- WAIT: Waiting for the echo signal.
+- COUNTECHO: Counting the duration of the echo signal.
 
-3. **Hardware Testing**
-   - Program the FPGA with the synthesized bitstream.
-   - Connect the hardware components as described.
-   - Use a function generator or a variable voltage source to test the oscilloscope functionality.
+### Finite State Machine (FSM)
+
+- The FSM transitions between states based on the measure signal and the echo signal.
+- In the TRIGGER state, it generates a trigger pulse.
+- In the WAIT state, it waits for the echo signal to go high.
+- In the COUNTECHO state, it counts the duration of the echo signal.
+- Distance Measurements
+- The distanceRAW counter increments while the echo signal is high.
+- The raw distance is then converted to centimeters using the formula: distance_cm = (distanceRAW * 34300) / (2 * 12000000).
+- If the distance is less than or equal to 5 cm, the buzzer_signal is activated.
+
+### Refresher module
+
+The `refresher50ms` module generates a measurement pulse every 50 milliseconds.
+
+# Step2: Block diagram of the pin connection of the project and the processing flow
+
+![image](https://github.com/user-attachments/assets/1c5bf5dc-f12c-426a-baa6-3e09dc6ef399)
+
+
+Internal processing flow
+
+![image](https://github.com/user-attachments/assets/d0766fc9-2cfc-4eac-ab2f-d9abf6e8d6f9)
+
+
+
+# Step3: Implementation in the FM
+
+Make sure you have copied the following file: top.v, ultra_sonic_sensor.v uart_trx.v Makefile and PCF file and put all these in the folder that is created in the folder VSDSquadron_FM named touchless_bell.
+
+To implement the code on FM follow the following steps:
+
+1. Go to software Ubuntu and open the terminal. Ensure that the FM is connected by typing lsusb.
+2. Then navigate to the folder by typing cd <folder name>.
+3. Then type make build to build the binaries.
+4. Then type sudo make flash to program the board.
+5. Now you have succesfully implemented the code in the FM.
+
+# Step4: Testing and verification
+
+Follow the steps to test it in the software Docklight:
+
+1. Set the baud rate to 9600. And 1 stop bit
+2. Ensure the port through which the FM is connected in the device manager
+3. Then test with objects. Put the object or anything above the senser, the buzzer will beep when the object is kept at a feild of 5cm
+
+# Step5: Final documentation
+
+The project has 3 verilog codes including the top.v.This module integrates sensor data acquisition, signal processing, and communication to provide a comprehensive functionality for an FPGA-based system. And also a verilog named `ultra_sound_sensor.v.` This code sets up the HC-SR04 sensor to measure distance and trigger a buzzer if the measured distance is below a specific given vvoltage.
+
+The pins of the ultrasonic sensor can be connected like the following way:
+
+![image](https://github.com/user-attachments/assets/3b7dd26a-01b8-450a-bc49-bde1be1b74d7)
+
+The internal processing diagram can be made by this way
+
+![image](https://github.com/user-attachments/assets/6088c0b1-ffbb-495b-89f6-670c3587dccc)
+
+Run the following steps to implement the codes:
+
+1. Go to software Ubuntu and open the terminal. Ensure that the FM is connected by typing lsusb.
+2. Then navigate to the folder by typing cd <folder name>.
+3. Then type make build to build the binaries.
+4. Then type sudo make flash to program the board.
+5. Now you have succesfully implemented the code in the FM.
+6. Test it by by using a serial terminal likr Dochlight by the steps:
+7. Set the baud rate to 9600. And 1 stop bit
+8. Ensure the port through which the FM is connected in the device manager
+9. Then test with objects. Put the object or anything above the senser, the buzzer will beep when the object is kept at a feild of 5cm.
+
+## Final Expected Behaviour
+
 
 ---
 
